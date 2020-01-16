@@ -77,7 +77,7 @@
       </c:if>
       <td>
          <a href="javascript:open_pop()"><img src="" width="150" height="160"></a><br>
-         닉네임 나이
+       		닉네임 : ${user.nickname} &nbsp; 나이 : ${user.age}
          <%-- 여기다 상대 성별만 나오게 하는 조건문 추가 --%>
       </td>
       <c:if test="${status.count % 3 == 0}">

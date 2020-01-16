@@ -1,8 +1,5 @@
 package dao.mapper;
 
-import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -12,20 +9,9 @@ import logic.User;
 
 public interface UserMapper {
 
-	@Insert("insert into useraccount (userid, password, username, phoneno, postcode, address, email, birthday) values (#{userid}, #{password}, #{username}, #{phoneno}, #{postcode}, #{address}, #{email}, #{birthday})")
-	void insert(User user);
+	@Select("select * from user")
+	User select();
 
-	@Select({"<script>",
-		"select * from useraccount",
-		"<if test='userid != null'> where userid = #{userid}</if>",
-		"<if test='idchks != null'> where userid in <foreach collection='idchks' item='i' separator=',' index='idx' open='(' close=')'>#{i}</foreach></if>",
-		"</script>"})
-	List<User> select(Map<String, Object> param);
-
-	@Update("update useraccount set username = #{username}, phoneno = #{phoneno}, postcode = #{postcode}, address = #{address}, email = #{email}, birthday = #{birthday} where userid = #{userid}")
-	void update(User user);
-
-	@Delete("delete from useraccount where userid = #{userid}")
-	void delete(Map<String, Object> param);
-
+	@Select("select count(*) from user where interestname1 IS NOT null")
+	int interestcount();
 }

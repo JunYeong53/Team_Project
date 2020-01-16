@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-/config/
 /controller/
 /dao/
-=======
-/controller/
->>>>>>> branch 'master' of https://github.com/JunYeong53/Team_Project.git
 /logic/
-/websocket/
+/config/

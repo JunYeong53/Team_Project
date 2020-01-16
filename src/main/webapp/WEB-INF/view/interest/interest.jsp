@@ -41,7 +41,7 @@
 		</c:if>
 		<td>
 			<a href="../interest/member.shop"><img src="" width="150" height="160"></a><br>
-			관심사 이름 &nbsp; 참가 인원 : 0 명
+			${list.interestname} &nbsp; 참가 인원 : ${ic} 명
 		</td>
 		<c:if test="${status.count % 3 == 0}">
 			</tr>
@@ -49,7 +49,6 @@
 	</c:forEach>
 </table>
 </div>
-
 <div class="d2">
 <table>
 	<c:forEach begin="1" end="20" varStatus="status">
@@ -58,7 +57,7 @@
 		</c:if>
 		<td>
 			<a href="../interest/member.shop"><img src="" width="150" height="160"></a><br>
-			관심사 이름 &nbsp; 참가 인원 : 0 명
+			${list.interestname} &nbsp; 참가 인원 : ${ic} 명
 		</td>
 		<c:if test="${status.count % 5 == 0}">
 			</tr>
