@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 public class User {
 	private String id;
@@ -26,6 +27,8 @@ public class User {
 	private String education;
 	private String pay;
 	private String greeting;
+	private String agehigh;
+	private String agelow;
 	private int age;
 	private String interestname1;
 	private String interestname2;
@@ -33,6 +36,7 @@ public class User {
 	private String interestname4;
 	private String interestname5;
 	private String interestname6;
+	private MultipartFile profile;
 	
 	public String getId() {
 		return id;
@@ -172,15 +176,33 @@ public class User {
 	public void setInterestname6(String interestname6) {
 		this.interestname6 = interestname6;
 	}
-	
+	public MultipartFile getProfile() {
+		return profile;
+	}
+	public void setProfile(MultipartFile profile) {
+		this.profile = profile;
+	}
+	public String getAgehigh() {
+		return agehigh;
+	}
+	public void setAgehigh(String agehigh) {
+		this.agehigh = agehigh;
+	}
+	public String getAgelow() {
+		return agelow;
+	}
+	public void setAgelow(String agelow) {
+		this.agelow = agelow;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", password=" + password + ", gender=" + gender + ", phone=" + phone + ", birthday="
 				+ birthday + ", address=" + address + ", nickname=" + nickname + ", profileurl1=" + profileurl1
 				+ ", profileurl2=" + profileurl2 + ", profileurl3=" + profileurl3 + ", profileurl4=" + profileurl4
 				+ ", height=" + height + ", body=" + body + ", education=" + education + ", pay=" + pay + ", greeting="
-				+ greeting + ", age=" + age + ", interestname1=" + interestname1 + ", interestname2=" + interestname2
-				+ ", interestname3=" + interestname3 + ", interestname4=" + interestname4 + ", interestname5="
-				+ interestname5 + ", interestname6=" + interestname6 + "]";
+				+ greeting + ", agehigh=" + agehigh + ", agelow=" + agelow + ", age=" + age + ", interestname1="
+				+ interestname1 + ", interestname2=" + interestname2 + ", interestname3=" + interestname3
+				+ ", interestname4=" + interestname4 + ", interestname5=" + interestname5 + ", interestname6="
+				+ interestname6 + ", profile=" + profile + "]";
 	}
 }

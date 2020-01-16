@@ -17,7 +17,7 @@ public class BoardController {
 	private ShopService service;
 	
 	@RequestMapping("notice")
-	public String checkmain(HttpSession session) {
+	public String checkmain() {
 		return "board/notice";
 	}
 

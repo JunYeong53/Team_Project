@@ -25,5 +25,9 @@ public class UserDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	private Map<String, Object> param = new HashMap<>();
+	
+	public void join(User user) {
+		sqlSession.getMapper(UserMapper.class).join(user);
+	}
 
 }

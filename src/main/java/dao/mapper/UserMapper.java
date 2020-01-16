@@ -12,20 +12,7 @@ import logic.User;
 
 public interface UserMapper {
 
-	@Insert("insert into useraccount (userid, password, username, phoneno, postcode, address, email, birthday) values (#{userid}, #{password}, #{username}, #{phoneno}, #{postcode}, #{address}, #{email}, #{birthday})")
-	void insert(User user);
-
-	@Select({"<script>",
-		"select * from useraccount",
-		"<if test='userid != null'> where userid = #{userid}</if>",
-		"<if test='idchks != null'> where userid in <foreach collection='idchks' item='i' separator=',' index='idx' open='(' close=')'>#{i}</foreach></if>",
-		"</script>"})
-	List<User> select(Map<String, Object> param);
-
-	@Update("update useraccount set username = #{username}, phoneno = #{phoneno}, postcode = #{postcode}, address = #{address}, email = #{email}, birthday = #{birthday} where userid = #{userid}")
-	void update(User user);
-
-	@Delete("delete from useraccount where userid = #{userid}")
-	void delete(Map<String, Object> param);
+	@Insert("insert into user(id, password, gender, phone, birthday, address, nickname, profileurl1, height, body, education, pay, agehigh, agelow) values (#{id}, #{password}, #{gender}, #{phone}, #{birthday}, #{address}, #{nickname}, #{profileurl1}, #{height}, #{body}, #{education}, #{pay}, #{agehigh}, #{agelow})")
+	void join(User user);
 
 }

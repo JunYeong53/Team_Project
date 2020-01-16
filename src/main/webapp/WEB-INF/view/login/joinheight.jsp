@@ -64,6 +64,14 @@
 			style="width: 600px;">
 			<form class="login100-form validate-form" action="joinbody.shop"
 				method="post">
+				<input type="hidden" name="id" value="${user.id}"> <input
+					type="hidden" name="password" value="${user.password}"> <input
+					type="hidden" name="gender" value="${user.gender}"> <input
+					type="hidden" name="phone" value="${user.phone}"> <input
+					type="hidden" name="birth" value="${birth}"> <input
+					type="hidden" name="address" value="${user.address}"> <input
+					type="hidden" name="nickname" value="${user.nickname}">
+					<input type="hidden" name="profileurl1" value="${user.profileurl1}">
 				<span class="login100-form-title p-b-37" id="sp"> 회원님의 키를 알려주세요 </span>
 
 				<div class="inputy-item" id="d1">

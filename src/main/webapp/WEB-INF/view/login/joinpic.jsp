@@ -52,47 +52,12 @@
 		$('#d2').fadeIn(2000);
 		$('#d3').fadeIn(2000);
 	})
+	
+	function win_upload(){
+		var op = "width=500, height=150, left=50, top=150";
+		open("picture.shop", "", op);
+	}
 </script>
-
-<style type="text/css">
-.background-base[data-v-d0a9817c] {
-	background-position: 50%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-color: #f5f6f8;
-}
-
-.square-box:before {
-	display: block;
-	content: "";
-	padding-top: 100%;
-}
-
-.filebox label {
-	display: inline-block;
-	padding: .5em .75em;
-	color: #fff;
-	font-size: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	background-color: #bd59d4;
-	cursor: pointer;
-	border: 1px solid #ebebeb;
-	border-bottom-color: #e2e2e2;
-	border-radius: .25em;
-}
-
-.filebox input[type="file"] { /* 파일 필드 숨기기 */
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-}
-</style>
 </head>
 <body>
 
@@ -102,28 +67,23 @@
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30"
 			style="width: 600px;">
 			<form class="login100-form validate-form" action="joinheight.shop"
-				method="post">
+				method="post" name="f">
 				<input type="hidden" name="id" value="${user.id}"> <input
 					type="hidden" name="password" value="${user.password}"> <input
 					type="hidden" name="gender" value="${user.gender}"> <input
 					type="hidden" name="phone" value="${user.phone}"> <input
 					type="hidden" name="birth" value="${birth}"> <input
 					type="hidden" name="address" value="${user.address}"> <input
-					type="hidden" name="nickname" value="${user.nickname}"> <span
+					type="hidden" name="nickname" value="${user.nickname}">
+					<input type="hidden" name="profileurl1" value=""> <span
 					class="login100-form-title p-b-37" id="sp"> 프로필 사진을 등록해주세요 </span>
 
-				<div class="inputy-item" id="d1">
-					<div data-v-d0a9817c="" data-v-1dfd6e78=""
-						class="background-base square-box is-square"
-						style="background-image: url(https://static-kr-pairs.akamaized.net/public/images/app/component/icon/user/photo_placeholder.png); width: 150px; text-align: center; margin-left: 170px;"></div>
+				<div class="inputy-item" id="d1" style="margin-left: 34%;">
+					<img src="" width="150" height="160" id="pic">
 				</div>
 				<br>
-				<div id="d2">
-					<div class="filebox" style="margin-left: 42%;">
-						<label for="ex_filename">업로드</label> <input type="file"
-							id="ex_filename" class="upload-hidden">
-					</div>
-
+				<div id="d2" style="margin-left: 33%;">
+					<button type="button" class="login100-form-btn" onclick="javascript:win_upload()">업로드</button>
 				</div>
 				<br>
 				<div class="container-login100-form-btn" id="d3">

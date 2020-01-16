@@ -18,20 +18,17 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Configuration // spring 환경 설정 클래스. xml 대체하는 클래스
+@Configuration
 @ComponentScan(basePackages = {"controller", "logic", "dao", "aop", "websocket"})
-@EnableAspectJAutoProxy // AOP 설정
-@EnableWebMvc // 유효성 검증
+@EnableAspectJAutoProxy 
+@EnableWebMvc 
 public class MvcConfig implements WebMvcConfigurer{
-	// @Bean : <bean id="handlerMapping" class="..HandlerMapping" />
-	//			=> HandlerMapping 클래스의 객체를 handlerMapping 이름으로 컨테이너에 저장
-	@Bean// 요청정보(URL)와 Controller를 mapping
 	public HandlerMapping handlerMapping() {
 		RequestMappingHandlerMapping hm = new RequestMappingHandlerMapping();
 		hm.setOrder(0);
 		return hm;
 	}
-	// view 위치 지정
+
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver vr = new InternalResourceViewResolver();
@@ -45,14 +42,14 @@ public class MvcConfig implements WebMvcConfigurer{
 		ms.setBasename("messages");
 		return ms;
 	}
-	@Bean // 첨부파일 업로드
+	@Bean 
 	public MultipartResolver multipartResolver() {
 		CommonsMultipartResolver mr = new CommonsMultipartResolver();
 		mr.setMaxInMemorySize(10485760);
 		mr.setMaxUploadSize(104857600);
 		return mr;
 	}
-	@Bean // 예외처리 객체
+	@Bean 
 	public SimpleMappingExceptionResolver exceptionHandler() {
 		SimpleMappingExceptionResolver ser = new SimpleMappingExceptionResolver();
 		Properties pr = new Properties();

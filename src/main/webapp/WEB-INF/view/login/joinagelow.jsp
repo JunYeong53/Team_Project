@@ -64,6 +64,19 @@
 			style="width: 600px;">
 			<form class="login100-form validate-form" action="joinready.shop"
 				method="post">
+				<input type="hidden" name="id" value="${user.id}"> <input
+					type="hidden" name="password" value="${user.password}"> <input
+					type="hidden" name="gender" value="${user.gender}"> <input
+					type="hidden" name="phone" value="${user.phone}"> <input
+					type="hidden" name="birth" value="${birth}"> <input
+					type="hidden" name="address" value="${user.address}"> <input
+					type="hidden" name="nickname" value="${user.nickname}">
+					<input type="hidden" name="profileurl1" value="${user.profileurl1}">
+					<input type="hidden" name="height" value="${user.height}">
+					<input type="hidden" name="body" value="${user.body}">
+					<input type="hidden" name="education" value="${user.education}">
+					<input type="hidden" name="pay" value="${user.pay}">
+					<input type="hidden" name="agehigh" value="${user.agehigh}">
 				<span class="login100-form-title p-b-37" id="sp"> 상대방의 희망나이를 알려주세요.<div style="float: right;" id="d2">(하한)</div></span>
 				<br>
 				<div class="inputy-item" id="d1">
