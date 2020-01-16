@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="/WEB-INF/view/jspHeader.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,33 +8,28 @@
 <title></title>
 </head>
 <body>
-
-<form action="#">
 	<table>
 		<tr>
 			<th>제목</th>
-			<td></td>
+			<td>${board.boardsubject}</td>
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td></td>
+			<td>${board.id}</td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td></td>
+			<td>${board.boardcontent}</td>
 		</tr>
 		<tr>
 			<th>작성일</th>
-			<td></td>
+			<td><fmt:formatDate value="${board.boarduptime}" pattern="yyyy-MM-dd" /></td>
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: right;">
-				<button onclick="location.href='suggest.shop'" type="button">목록</button>
-				<button type="submit">삭제</button>
+				<button onclick="location.href='suggest.shop'" type="button">목록</button>		
 			</td>
 		</tr>
 	</table>
-</form>
-
 </body>
 </html>

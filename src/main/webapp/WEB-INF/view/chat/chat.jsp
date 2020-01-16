@@ -80,7 +80,7 @@ div.chatcenter {
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%; /* Could be more or less, depending on screen size */
-	height: 500px;
+	height: 550px;
 }
 
 .modal-left {

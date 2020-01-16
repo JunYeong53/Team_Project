@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>건의사항</title>
+<title>후기</title>
 <script>
    function listdo(page){
       document.page.pageNum.value=page;
@@ -14,15 +14,15 @@
 </script>
 </head>
 <body>
-<h1>건의사항</h1>
-<form action="suggest.shop" method="post" name="page">
+<h1>후기</h1>
+<form action="review.shop" method="post" name="page">
 <input type="hidden" name="pageNum" value="1">
 <table>
 			<tr><th width="10%">번호</th><th width="50%">제목</th><th width="20%">글쓴이</th><th width="20%">날짜</th></tr>
-			<c:forEach items="${suboardlist}" var="list">
+			<c:forEach items="${reboardlist}" var="list">
 				<tr><td>${boardno}</td><c:set var="boardno" value="${boardno - 1}" />
 				<td style="text-align: left;">
-			<a href="suggestdetail.shop?boardnum=${list.boardnum}">${list.boardsubject}</a></td>
+			<a href="reviewdetail.shop?boardnum=${list.boardnum}">${list.boardsubject}</a></td>
 				<td>${list.id}</td><td><fmt:formatDate value="${list.boarduptime}" pattern="yyyy-MM-dd" /></td>
 				</tr>
 				</c:forEach>
@@ -39,5 +39,6 @@
 				</td></tr>
 </table>
 </form>
+<a href="reviewwrite.shop">[글쓰기]</a>
 </body>
 </html>

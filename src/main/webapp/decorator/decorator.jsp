@@ -112,6 +112,7 @@
                         <li><a href="${path}/interest/interest.shop"><i class="fas fa-users"></i>관심사</a></li>
                         <li><a href="${path}/user/receive.shop"><i class="fas fa-thumbs-up"></i>내가 받은 좋아요</a></li>
                         <li class="menu"><a href="#menu"><i class="fas fa-comment"></i>채팅</a></li>
+                        <li><a href="${path}/board/noticewrite.shop">공지작성</a></li>         
                      </ul>
                   </nav>
                   <nav style="margin-right:2%; padding-top:5px;">

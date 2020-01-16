@@ -8,12 +8,13 @@
 </head>
 <body>
 
-<form>
+<form action="suggestwrite.shop" method="post">
+	<input type="hidden" name=boardid value="${user.id}">
 	<table>
 		<tr>
 			<th width="20%" style="text-align: center;">제목</th>
 			<td>
-				<input type="text">
+				<input type="text" name="boardsubject">
 			</td>
 		</tr>
 		<tr>
@@ -25,12 +26,12 @@
 		<tr>
 			<th width="20%" style="text-align: center;">내용</th>
 			<td>
-				<textarea rows="10" cols="7"></textarea>
+				<textarea rows="10" cols="7" name="boardcontent"></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: right;">
-				<button>작성</button>
+				<input type="submit" value="작성">
 			</td>
 		</tr>
 	</table>
