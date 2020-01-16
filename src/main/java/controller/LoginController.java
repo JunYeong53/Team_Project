@@ -91,6 +91,7 @@ public class LoginController {
 	public ModelAndView joinpic(User user, String birth) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("birth", birth);
+		System.out.println(birth);
 		mav.addObject(user);
 		return mav;
 	}
