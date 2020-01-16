@@ -137,7 +137,7 @@
                            <li style="margin-top: 0;">
                               <div style="padding: 8px; display: flex; align-items: center;">
                               <a href="${path}/chat/chat.shop">
-                                 <div class="left">
+                                  <div class="left">
                                  <img width="100" height="100" src="">
                                  </div>
                                  <div class="right" style="padding-left: 5%;">
@@ -152,7 +152,7 @@
                         </ul>
                      </div>                  
                </section>
-
+ 
             <!-- Main -->
                <div id="main">
                   <div id="test" class="test">
@@ -166,11 +166,11 @@
              <div class="like"><a href="${path}/user/give.shop">내가 보낸 좋아요</a></div><br>
              <div class="logout"><a href="#">로그아웃</a></div>
           </div> 
-          <div class="modal-right">
+          <div class="modal-right"> 
              <div class="name"><b>내이름</b></div>
              <div class="vmfhvlf">
              <button style="width:100%; height:100%; border-radius: 50px; padding-top:5px; background-color: #00c1bf;" onclick="location.href='${path}/user/mypage.shop'">
-             <span style="font-size:17px; color:white; "><i class="fas fa-cog"></i>프로필 편집</span>
+             <span style="font-size:17px; color:white; "><i class="fas fa-cog"></i>프로필 편집</span> 
              </button>
              </div>
              
@@ -180,7 +180,7 @@
     </div>
                   <decorator:body />
                </div>
-
+ 
          </div>
 
       <!-- Scripts -->

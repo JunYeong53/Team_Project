@@ -32,8 +32,6 @@ Import Google Fonts
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800);
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400italic&subset=latin,latin-ext);
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i)
-
 /*--------------------
 1. General
 --------------------*/
@@ -88,146 +86,9 @@ section#contact {
     background: url("../images/pink-2187228_1920.jpg") no-repeat center top;
     background-size: cover;
     min-height: 580px;
-    position: relative;
-    
+    position: relative;  
 }
-
-/* body {
-    overflow: hidden;
-    background: #000 url('../img/background.jpg') 0 0 repeat;
-    position: relative;
-    font-family: "Open Sans", sans-serif;
-}
-
-a {
-    color: #1e5f8d;
-    text-decoration: none;
-    transition: 0.3s ease-in-out;
-}
-
-a:hover {
-    color: #00a6eb;
-}
-
-#header {
-    background: #fff;
-    height: 64px;
-    overflow: hiddent;
-    border-bottom: 1px solid #ddd;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-}
-
-.logo {
-    float: left;
-}
-
-.logo img {
-    margin: 10px 0 0 10px;
-    padding: 8px 10px 8px 0;
-    border-right: 1px solid #eee;
-    width: 180px;
-}
-
-.info {
-    padding: 20px 0 0 10px;
-    font-size: 16px;
-    color: #555;
-    float: left;
-}
-
-.info a {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.info a:hover {
-    text-decoration: none;
-}
- */
-
-/* Section with background
---------------------------------*/
-
-.section-bg {
-  background: #f7f7f7;
-}
-
-section#testimonials {
-  padding: 60px 0;
-}
-
-section#testimonials {}
-
-#testimonials .section-header {
-  margin-bottom: 40px;
-}
-
-#testimonials .testimonial-item {
-  text-align: center;
-}
-
-#testimonials .testimonial-item .testimonial-img {
-  width: 120px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  margin: 0 auto;
-}
-
-#testimonials .testimonial-item h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-  color: #111;
-}
-
-#testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: #999;
-  margin: 0 0 15px 0;
-}
-
-#testimonials .testimonial-item .quote-sign-left {
-  margin-top: -15px;
-  padding-right: 10px;
-  display: inline-block;
-  width: 37px;
-}
-
-#testimonials .testimonial-item .quote-sign-right {
-  margin-bottom: -15px;
-  padding-left: 10px;
-  display: inline-block;
-  max-width: 100%;
-  width: 37px;
-}
-
-#testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 auto 15px auto;
-}
-
-#testimonials .owl-nav,
-#testimonials .owl-dots {
-  margin-top: 5px;
-  text-align: center;
-}
-
-#testimonials .owl-dot {
-  display: inline-block;
-  margin: 0 5px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd;
-}
-
-#testimonials .owl-dot.active {
-  background-color: #18d26e;
-}
-
+ 
 /*--------------------
 2. Navigation
 --------------------*/
@@ -312,7 +173,7 @@ section#testimonials {}
 --------------------*/
 
 header {
-    background-image: url(../images/demo/sky-4587691_1920.jpg);
+    background-image: url(../images/sky-4587691_1920.jpg);
     background-repeat: none;
     background-attachment: scroll;
     background-position: center center;
@@ -609,7 +470,7 @@ figure.effect-bubba:hover p {
 }
 
 .bg-img1 {
-    background-image: url(../images/demo/hands-437968_1920.jpg);
+    background-image: url(../images/hands-437968_1920.jpg);
     background-size: cover !important;
     background-position: center center;
     background-repeat: no-repeat;
@@ -627,7 +488,7 @@ figure.effect-bubba:hover p {
     position: absolute;
     width: 100%;
     height: 100%;
-    content: "";
+    content: ""; 
     z-index: -1;
 }
 
@@ -898,7 +759,7 @@ and (max-width : 480px) {
 #back-top {
     position: fixed;
     bottom: 10px;
-    right: 30px; 
+    right: 30px;
 }
 #back-top a {
     width: 40px;
@@ -908,134 +769,4 @@ and (max-width : 480px) {
     margin-top: 7px;
     font-size: 20px;
 }
-
-#portfolio {display:block; width:100%; min-width:1382px; padding:98px 0 0 0; padding:0;}
-#portfolio .temp {display:block; margin:0 auto; padding:0 131px; width:1120px;}
- 
-#portfolio .second {display:block; width:100%; min-width:1120px;height:723px; background:url(images/bg_02.jpg) center top no-repeat;}
- 
-#portfolio .second .temp {width:888px; height:724px;} 
-#portfolio .second .temp h1 {position:static; visibility:visible; display:block; float:left; width:100%; height:193px; font-size:0;}
-#portfolio .second .temp .q {clear:both; display:block; margin:0 auto; width:700px; height:161px; font-size:28px; color:#343434; line-height:34px; text-align:center;}
-#portfolio .second .temp .q .middle {display:table-cell; width:700px; vertical-align:middle; height:161px;}
-#portfolio .second .temp .a {clear:both; display:block; margin:0 auto; width:555px; height:89px;}
-#portfolio .second .temp .a table tr td label {display:block; float:left; width:89px; height:89px; background:url(images/radio_off.jpg) center top no-repeat; position:relative; font-size:0;}
-#portfolio .second .temp .a table tr td label input[type="radio"] {position:absolute; left:0; top:0; z-index:-1;}
-#portfolio .second .temp .a table tr td .on {background:url(/html/love_test/self_love/img/radio_on.jpg) center top no-repeat;}
-#portfolio .second .temp .state {clear:both; display:block; float:left; margin:70px 0 0; width:100%; font-size:14px; color:#343434; text-align:center; line-height:18px;}
-#portfolio .second .temp .state div {display:inline-block; padding:0 7px;}
-#portfolio .second .temp .state img {display:inline-block; vertical-align:middle;}
-#portfolio .second .temp .remain {clear:both; display:block; float:left; margin:50px 0 0; width:100%; font-size:14px; color:#ff316d; text-align:center;}
-
-
-/* Back to top button */
-.back-to-top {
-  position: fixed;
-  display: none;
-  background: #3EC1D5;
-  color: #fff;
-  padding: 6px 12px 9px 12px;
-  font-size: 16px;
-  border-radius: 2px;
-  right: 15px;
-  bottom: 15px;
-  transition: background 0.5s;
-}
-
-@media (max-width: 768px) {
-  .back-to-top {
-    bottom: 15px;
-  }
-}
-
-.back-to-top:focus {
-  background: #3EC1D5;
-  color: #fff;
-  outline: none;
-}
-
-.back-to-top:hover {
-  background: #3cd6ed;
-  color: #fff;
-}
-
-.clear {
-  clear: both;
-}
-
-ul {
-  list-style: outside none none;
-  margin: 0;
-  padding: 0;
-}
-
-input, select, textarea, input[type="text"], input[type="date"], input[type="url"], input[type="email"], input[type="password"], input[type="tel"], button, button[type="submit"] {
-  -moz-appearance: none;
-  box-shadow: none !important;
-}
-
-div#preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 99999;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  background: #fff url('../img/preloader.gif') no-repeat center center;
-}
-
-::-moz-selection {
-  background: #3EC1D5;
-  text-shadow: none;
-}
-
-::selection {
-  background: #3EC1D5;
-  text-shadow: none;
-}
-
-.area-padding {
-  padding: 70px 0px 80px;
-}
-
-.area-padding-2 {
-  padding: 70px 0px 50px;
-}
-
-.padding-2 {
-  padding-bottom: 90px;
-}
-
-.section-headline h2 {
-  display: inline-block;
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 70px;
-  position: relative;
-  text-transform: capitalize;
-}
-
-.section-headline h2::after {
-  border: 1px solid #333;
-  bottom: -20px;
-  content: "";
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  right: 0;
-  width: 40%;
-}
-
-.sec-head {
-  display: inline-block;
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 0;
-  padding: 0 0 10px;
-  text-transform: uppercase;
-  transition: all 0.4s ease 0s;
-}
-
-
 }
