@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Login V9</title>
+<title>PINGLE</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -52,6 +52,31 @@
 		$('#d2').fadeIn(2000);
 		$('#d3').fadeIn(2000);
 	})
+	
+	function joincheck(){
+		var joinnick = f.nickname.value;
+		if(f.nickname.value == ""){
+			alert("회원님의 닉네임을 입력해주세요!")
+			return false;
+		}
+		$.ajax({
+            type : "GET",
+            url : "../ajax/nicknamecheck.shop",
+            data : {
+               "id" : joinnick
+            },
+            success : function(data) {  
+            		if(data == 1){
+            			f.nickname.focus();
+            			alert("중복된 닉네임입니다.")
+            			return;
+            		}
+            		else{
+            			f.submit();
+            		}
+            }
+      })
+	}
 </script>
 </head>
 <body>
@@ -61,13 +86,14 @@
 		style="background-image: url('images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30"
 			style="width: 600px;">
-			<form class="login100-form validate-form" action="joinpic.shop" method="post">
+			<form class="login100-form validate-form" action="joinpic.shop" method="post" name="f">
 				<input type="hidden" name="id" value="${user.id}">
 				<input type="hidden" name="password" value="${user.password}">
 				<input type="hidden" name="gender" value="${user.gender}">
 				<input type="hidden" name="phone" value="${user.phone}">
 				<input type="hidden" name="birth" value="${birth}">
 				<input type="hidden" name="address" value="${user.address}">
+				<input type="hidden" name="email" value="${user.email}">
 				<span class="login100-form-title p-b-37" id="sp"> 닉네임을 정해주세요 </span>
 				
 				<div class="inputy-item" id="d1">
@@ -81,7 +107,7 @@
 				<br>
 				<div class="container-login100-form-btn" id="d3">
 					<button class="login100-form-btn" style="min-width: 0px;"
-						type="submit">Next</button>
+						type="button" onclick="joincheck(this.form)">Next</button>
 				</div>
 
 				<div class="text-center p-t-57 p-b-20">

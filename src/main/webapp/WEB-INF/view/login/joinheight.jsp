@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Login V9</title>
+<title>PINGLE</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -52,6 +52,14 @@
 		$('#d2').fadeIn(2000);
 		$('#d3').fadeIn(2000);
 	})
+	
+	function joincheck(){
+		if(f.height.value == ""){
+			alert("회원님의 키를 선택해주세요!")
+			return false;
+		}
+		return true;
+	}
 </script>
 
 </head>
@@ -63,7 +71,7 @@
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30"
 			style="width: 600px;">
 			<form class="login100-form validate-form" action="joinbody.shop"
-				method="post">
+				method="post" name="f" onsubmit="return joincheck()">
 				<input type="hidden" name="id" value="${user.id}"> <input
 					type="hidden" name="password" value="${user.password}"> <input
 					type="hidden" name="gender" value="${user.gender}"> <input
@@ -72,6 +80,7 @@
 					type="hidden" name="address" value="${user.address}"> <input
 					type="hidden" name="nickname" value="${user.nickname}">
 					<input type="hidden" name="profileurl1" value="${user.profileurl1}">
+					<input type="hidden" name="email" value="${user.email}">
 				<span class="login100-form-title p-b-37" id="sp"> 회원님의 키를 알려주세요 </span>
 
 				<div class="inputy-item" id="d1">

@@ -7,35 +7,55 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <script type="text/javascript"> 
+      function open_pop(id) {         
+           $('#myModal').show();
+           $.ajax({
+            type : "POST",
+            url : "../ajax/usersearch.shop",
+            data : {
+               "id" : id
+            },
+            success : function(data) {               
+               $("#myModal").html(data)
+            }
+           
+         })
+       }
+        function close_pop(flag) {
+             $('#myModal').hide();
+        }
+        function good(id) {
+            $.ajax({
+             type : "POST",
+             url : "../ajax/good.shop",
+             data : {
+                "id" : id
+             },
+             success : open_pop(id)
+          })
+       }
+       
+       function goodcancel(id) {
+            $.ajax({
+             type : "POST",
+             url : "../ajax/goodcancel.shop",
+             data : {
+                "id" : id
+             },
+             success : open_pop(id)
+          })
+       }
+       
+       
+      </script>
 
 <script type="text/javascript">
-   $(document).ready(function(){
-      $('.d2').show();
-      $('.d1').hide();
-      $(window).resize(function (){
-           // width값을 가져오기
-           var width_size = window.outerWidth;
-           
-           // 800 이하인지 if문으로 확인
-           if (width_size <= 700) {
-             $('.d1').show();
-             $('.d2').hide();
-             
-           }
-           if (width_size > 700) {
-             $('.d2').show();
-             $('.d1').hide();
-            }
-         })
-   $('html').click(function(e)   { 
-      if($(e.target).hasClass("modal")) {
-         $('#myModal').hide();
-      }
-      if($(e.target).hasClass("test")) {
-         $('#test').hide();
-      }
-   });
-})
+         $('html').click(function(e)   {            
+             if($(e.target).hasClass("modal")) {
+                $('#myModal').hide();
+             }      
+          });
 </script>
  <style>        
         .modal {
@@ -50,100 +70,272 @@
             background-color: rgb(0,0,0); /* Fallback color */
             background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
-    
-        
+
         .modal-content {                 
             background-color: #fefefe;
             margin: 8% auto; /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
-            width: 40%; /* Could be more or less, depending on screen size */
-            height: 550px;                       
+            width: 900px; /* Could be more or less, depending on screen size */
+            height: 75%;      
+            border-radius: 16px;
+            display: flex;               
         }
-       
-        
+        .modal_d1{
+        	height: 100%;
+        	padding: 16px;
+        	padding-bottom: 0;
+        	box-sizing: border-box;
+        	flex-basis: 45%;
+        }
+        .modal_d1_1{
+        	position: relative;
+        }
+        .modal_d1_1_1{
+        	height: 329px;
+        }
+        .photo_space{
+        	height: 16px;
+        }
+        .modal_d1_2{
+        	height: 125px;
+        	overflow: hidden;
+        }
+        .modal_d1_2_1{
+        	padding: 6px;
+        }
+        .modal_d1_2_1_1{
+        	display: flex;
+        	flex-flow: row wrap;
+        	justify-content: space-between;
+        	align-items: flex-start;
+        }
+        .modal_d1_2_1_1_pic{
+        	flex-basis: 33.3333%;
+        	padding-top: 4px;
+        	padding-bottom: 4px;
+        	padding-right: 4px;
+        	padding-left: 4px;
+        }
+        .modal_d1_3{
+        	display: inline-block;
+        	width: 100%;
+        }
+        .modal_bu_like{
+        	width: 85px;
+        	height: 85px;
+        	display: inline-block;
+        	border-radius: 50px;
+        	background: white;
+        	color: #00c1bf;
+        	padding: 0px 10px 10px 10px;
+        	text-align: center;
+        	margin-right: 10%;
+        	margin-left: 20%;
+        }
+        .modal_bu_like_cancel{
+        	width: 85px;
+        	height: 85px;
+        	display: inline-block;
+        	border-radius: 50px;
+        	background: white;
+        	color: #00c1bf;
+        	padding: 0px 10px 10px 10px;
+        	text-align: center;
+        	margin-right: 10%;
+        	margin-left: 20%;
+        }
+        .modal_bu_report{
+        	width: 85px;
+        	height: 85px;
+        	display: inline-block;
+        	border-radius: 50px;
+        	background: white;
+        	color: #a81329;
+        	padding: 0px 10px 10px 10px;
+        	text-align: center;
+        }
+        .modal_d2{
+        	flex-basis: 55%;
+        	height: 100%;
+        	padding: 16px;
+        	padding-bottom: 0;
+        	box-sizing: border-box;
+        }
+        .modal_d2_1{
+        	height: 100%;
+        }
+        .modal_d2_1_1{
+        	height: 100%;
+        	overflow: hidden;
+        }
+        .modal_d2_1_1_1{
+        	font-size: 1.5rem;
+        }
+        .modal_d2_1_1_1_nick{
+        	font-weight: 700;
+        	font-size: 2.0rem;
+        }
+        .modal_d2_1_1_1_adrage{
+        	font-weight: 700;
+        	font-size: 1.2rem;
+        }
+        .modal_d2_1_1_1_gre{
+        	color: #b4b4b4;
+        	font-size: 1.2rem;
+        }
+        .modal_hr{
+        	padding: 5px 0;
+        	text-align: center;
+        }
+        .modal_d2_1_1_2_itname{
+        	font-weight: 700;
+        	font-size: 1.2rem;
+        }
+        .modal_d2_1_1_2_itbody{
+        	display: flex;
+        	flex-flow: row wrap;
+        	align-items: flex-start;
+        }
+        .modal_d2_1_1_2_itbody_con{
+        	flex-basis: 33.3333%;
+        	text-align: center;
+        	font-size: 1.2rem;
+        	padding: 4px;
+        	box-sizing: border-box;
+        }
+        .modal_profile_title{
+        	font-weight: 700;
+        	font-size: 1.4rem;
+        }
+        .modal_prof_state{
+        	padding: 6px 0;
+        }
+        .modal_prof_title{
+        	display: inline-block;
+        	color: #b4b4b4;
+        }
+        .modal_prof_body{
+        	display: inline-block;
+        }
+       .d1{
+       		height: 120px;
+       		padding: 0;
+       		display: flex;
+       		align-items: center;
+       		justify-content: space-between;
+       }
+       .d1_1 h1{
+       		color: #575757;
+       		font-size: 2.2rem;
+       		font-weight: 700;
+       }
+       .d1_2 a{
+       		border: 1px solid #fff;
+       		background: #fff;
+       		box-shadow: 0 2px 8px 0 rgba(0,0,0,.1);
+       		border-radius: 100px;
+       		color: #00c1bf;
+       		line-height: 2;
+       		padding: 16px 30px;
+       }
+       .d2{
+        	display: flex;
+        	flex-flow: row wrap;
+        	justify-content: space-between;
+        }
+        .d2_1{
+        	width: 200px;
+        	padding-top: 16px;
+        	padding-bottom: 16px;
+        }
+        .d2_1_1{
+        	position: relative;
+        	padding-right: 4px;
+        	padding-left: 4px;
+        }
+        .d2_1_1_1 img{
+        	border-radius: 8px;
+        	width: 200px;
+        	height: 200px;
+        }
+        .d2_1_1_2{
+        	opacity: 0;
+        	position: absolute;
+        }
+        .d2_1_1:hover .d2_1_1_2{
+        	display: flex;
+        	flex-direction: column;
+        	justify-content: center;
+        	background: rgba(0,0,0);
+        	opacity: 0.7;
+        	color: #fff;
+        	position: absolute;
+        	top: 0;
+        	left: 5px;
+        	width: 200px;
+   			height: 200px;
+   			border-radius: 8px;
+   			padding-right: 4px;
+   			padding-left: 4px;
+        }
+        .d2_1_1_2_nic{
+        	font-size: 1.2rem;
+        	text-align: center;
+        }
+        .d2_1_1_2_gre{
+        	text-align: center;
+        	margin-top: 10px;
+        	padding: 0 10px;
+        }
+        .d2_1_2{
+        	margin-top: 10px;
+        	display: flex;
+        	justify-content: space-between;
+        }
+        .d2_1_2_1{
+        	font-size: 1.3rem;
+        	font-weight: 700;
+        }
 </style>
 </head>
 <body>
-<br>
-<h1>방문자</h1>
-<br>
-
+<c:set var="user" value="${user}"/>
 <div class="d1">
-<table>
-   <c:forEach begin="1" end="20" varStatus="status">
-      <c:if test="${status.count % 3 == 1}">
-         <tr>
-      </c:if>
-      <td>
-         <img src="" width="150" height="160"><br>
-         유저 닉네임 &nbsp; 유저 나이
-      </td>
-      <c:if test="${status.count % 3 == 0}">
-         </tr>
-      </c:if>
-   </c:forEach>
-</table>
+	<div class="d1_1">
+		<h1>내 프로필에 방문한 인연</h1>
+	</div>
 </div>
-<!-- The Modal -->
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-          <div class="modal-left">
-          <div class="mainimage"><img src="" width="210" height="200"><br>
-          <img src="" width="68" height="50">&nbsp;<img src="" width="68" height="50">&nbsp;<img src="" width="68" height="50"><br>
-          </div>
-             <div class="age"><b>나이</b>&emsp;300살<br><b>거주지</b>&emsp;해외어딘가</div>
-             <div class="good">
-          <button style="width:60%; height:10%; border-radius: 50px; padding-top:5px; background-color: #00c1bf;" onclick=""><span>
-       </span>
-                   <span style="font-size:20px; color:white; "><i class="fas fa-thumbs-up"></i>좋아요 !</span></button>
-             </div>
-          </div>
-          <div class="modal-right">
-         <div class="name"><font style=font-size:22px;><b>상대방이름</b></font>         
-                   <a href="${path}/board/reportwrite.shop"><span style="font-size:15px; color:red; float:right;"><i class="fas fa-exclamation"></i>신고하기</span></a></div>
-         <div class="dlstkakf">인사말~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>~~~~~~~~~~~~~~~~~~~</div> <!-- 일정길이 이상되면 br태그 추가 -->
-         <div class="rhkstla"><b>n개의 관심사에 참여중~</b>&emsp;&emsp;<a href="#"><font style="font-size:10px">전부 보기</font></a><br>
-         <img src="" width="80" height="60">&emsp;<img src="" width="80" height="60">&emsp;
-         <img src="" width="80" height="60"><br>
-         <img src="" width="80" height="60">&emsp;<img src="" width="80" height="60">&emsp;
-          <img src="" width="80" height="60"></div>
-         <div class="vmfhvlf"><b style="font-size:20px">상세 프로필</b><br>
-            <b>키</b>&emsp;&nbsp;  2만<br><b>체형</b>&emsp; 돼지 <br>
-            <b>학벌</b>&emsp;대졸<br> <b>연봉</b>&emsp;30억          
-         </div>
-          </div>
-          <div class="foot">
-            <button onclick="close_pop()" style="width:100%; border-radius: 5px; background-color: #00c1bf; color:white;">닫기</button>
-         </div> 
-      </div>      
-    </div>
-    
 <div class="d2">
-<table>
-   <c:forEach begin="1" end="20" varStatus="status">
-      <c:if test="${status.count % 5 == 1}">
-         <tr>
-      </c:if>
-      <td>
-         <a href="javascript:open_pop()"><img src="" width="150" height="160"></a><br>
-         유저 닉네임 &nbsp; 유저 나이
-      </td>
-      <c:if test="${status.count % 5 == 0}">
-         </tr>
-      </c:if>
-   </c:forEach>
-</table>
+	<c:forEach var="list" items="${userlist}" varStatus="status">
+		<div class="d2_1">
+			<div class="d2_1_1" onclick="javascript:open_pop('${list.id}')">
+				<div class="d2_1_1_1">
+					<div>
+						<img src="${path}/login/img/${list.profileurl1}">
+					</div>
+				</div>
+				<div class="d2_1_1_2">
+					<div class="d2_1_1_2_nic">
+						${list.nickname}
+					</div>
+					<div class="d2_1_1_2_gre">
+						안녕하세요!
+					</div>
+				</div>
+			</div>
+			<div class="d2_1_2">
+				<div class="d2_1_2_1">
+					${list.address} ${list.age}세
+				</div>
+			</div>
+		</div>
+	</c:forEach>
 </div>
-    <script type="text/javascript"> 
-       function open_pop() {
-           $('#myModal').show();
-       }
-        function close_pop(flag) {
-             $('#myModal').hide();
-        };
+ <!-- The Modal -->
+    <div id="myModal" class="modal">
        
-      </script>
+    </div>
+   
 </body>
 </html>

@@ -13,12 +13,12 @@
 <html>
    <head>
    
-      <title>Single - Future Imperfect by HTML5 UP</title>
+      <title>PINGLE</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="${path}/decorator/assets/css/main.css" />
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script type="text/javascript" src="http://cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
+      <script src="https://cdn.ckeditor.com/4.13.1/basic/ckeditor.js"></script>
       <script src="https://kit.fontawesome.com/9e0947a00b.js" crossorigin="anonymous"></script>
       <script type="text/javascript">
    $(document).ready(function(){
@@ -35,9 +35,9 @@
        -->
        
        <style type="text/css">
-          div {
-              width: 100%;
-             }
+       body{
+          background: white;
+       }
           div.left {
             width: 50%;
               float: left;
@@ -66,22 +66,25 @@
             background-color: rgb(0,0,0); /* Fallback color */
             background-color: rgba(255,255,255,0.0); /* Black w/ opacity */
         }
-         .test-content {                 
-            background-color: #fefefe;
+         .mypage {         
+          margin-top:22%;
+          width: 40px;
+          height: 40px;
+          border-radius: 70%;
+          overflow: hidden;
+       }
+
+       .test-content { 
+         border: 1px solid;
+        border-radius: 30px;                
+         background-color: #fefefe;
          margin-left:79%;
          margin-top:5%;
             padding: 20px;           
             width: 20%; /* Could be more or less, depending on screen size */
-            height: 485px;                       
+            height: 550px; 
+            box-shadow: 0 4px 10px 0 rgba(0,0,0,.3);                     
         }
-       .mypage {
-          border:1px solid;
-          margin-top:22%;
-          width: 35px;
-          height: 35px;
-          border-radius: 70%;
-          overflow: hidden;
-       }
        .myimage {
           width:   100px;
           height: 100px;
@@ -103,7 +106,7 @@
    <body class="single is-preload">
 
       <!-- Wrapper -->
-         <div id="wrapper" style="padding-top: 1%;">
+         <div id="wrapper" style="padding-top: 1%; overflow: hidden;">
             <!-- Header -->
                <header id="header">
                   <nav class="links">
@@ -112,11 +115,12 @@
                         <li><a href="${path}/interest/interest.shop"><i class="fas fa-users"></i>관심사</a></li>
                         <li><a href="${path}/user/receive.shop"><i class="fas fa-thumbs-up"></i>내가 받은 좋아요</a></li>
                         <li class="menu"><a href="#menu"><i class="fas fa-comment"></i>채팅</a></li>
+                        <c:if test="${loginUser.id=='admin'}"><li><a href="${path}/board/noticewrite.shop">공지작성</a></li></c:if>
                      </ul>
                   </nav>
                   <nav style="margin-right:2%; padding-top:5px;">
                      <ul>
-                        <li class="mypage"><a href="javascript:open_test()"><img src="" class="icon"></a></li>                                                
+                        <li class="mypage"><a href="javascript:open_test()"><img src="${path}/login/img/${proflieurl}" class="icon"></a></li>                                                
                      </ul>                     
                   </nav>
                </header>
@@ -131,19 +135,19 @@
                      </div>
 
                   <!-- Links -->
-                     <div style="border-top: 0px; padding-top: 0; padding-bottom: 0;">
+                     <div style="border-top: 0px; padding-top: 0; padding-bottom: 0;" class="cr">
                         <ul class="links">
-                           <c:forEach begin="1" end="5">
+                           <c:forEach var="chatlist" items="${chatlist}">
                            <li style="margin-top: 0;">
                               <div style="padding: 8px; display: flex; align-items: center;">
-                              <a href="${path}/chat/chat.shop">
+                              <a href="${path}/chat/chat.shop?chatnum=${chatlist.chatnum}" style="width: 100%;">
                                  <div class="left">
-                                 <img width="100" height="100" src="">
+                                 <img width="100" height="100" src="${path}/login/img/${chatlist.user.profileurl1}">
                                  </div>
                                  <div class="right" style="padding-left: 5%;">
-                                 <p>상대방 닉네임</p>
-                                 <p>상대 거주지,나이</p>
-                                 <p>매칭성공</p>
+                                 <p>${chatlist.user.nickname}</p>
+                                 <p>${chatlist.user.address},${chatlist.user.age}</p>
+                                 <p>매칭성공</p>                                 
                                  </div>
                               </a>
                               </div>
@@ -158,18 +162,21 @@
                   <div id="test" class="test">
        <div class="test-content">
           <div class="modal-left">
-             <div class="myimage"><img src="" class="img"></div>
+             <div class="myimage"><img src="${path}/login/img/${proflieurl}" class="img"></div>
              <div style="margin-top:10px;"><a href="${path}/board/notice.shop">공지사항</a></div><br>
-            <div><a href="${path}/board/suggest.shop">건의사항</a></div><br>
+            <c:if test="${loginUser.id!='admin'}"><div><a href="${path}/board/suggestwrite.shop">건의작성</a></div></c:if>
+            <c:if test="${loginUser.id=='admin'}"><div><a href="${path}/board/suggest.shop">건의사항</a></div></c:if><br>
             <div><a href="${path}/board/review.shop">후기</a></div><br>
-             <div class="visit"><a href="${path}/user/history.shop">방문자</a></div><br>
+             <c:if test="${loginUser.id != 'admin'}"><div class="visit"><a href="${path}/user/history.shop">방문자</a></div><br>
              <div class="like"><a href="${path}/user/give.shop">내가 보낸 좋아요</a></div><br>
-             <div class="logout"><a href="#">로그아웃</a></div>
+             <div><a href="${path}/board/promise.shop">내가 보낸 약속</a></div><br></c:if>
+             <c:if test="${loginUser.id == 'admin'}"><div><a href="${path}/board/report.shop">신고목록</a></div><br></c:if>
+             <div class="logout"><a href="${path}/user/logout.shop">로그아웃</a></div>
           </div> 
           <div class="modal-right">
-             <div class="name"><b>내이름</b></div>
+             <div class="name"><b>${loginUser.nickname}님</b></div>
              <div class="vmfhvlf">
-             <button style="width:100%; height:100%; border-radius: 50px; padding-top:5px; background-color: #00c1bf;" onclick="location.href='${path}/user/mypage.shop'">
+             <button style="width:100%; height:100%; border-radius: 50px; padding-top:5px; background-color: #00c1bf;" onclick="location.href='${path}/user/mypage.shop?id=${loginUser.id}'">
              <span style="font-size:17px; color:white; "><i class="fas fa-cog"></i>프로필 편집</span>
              </button>
              </div>

@@ -1,48 +1,95 @@
 package websocket;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.server.ServerHttpRequest;
+import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+import org.springframework.web.socket.server.HandshakeInterceptor;
+
+import logic.Message;
+import logic.ShopService;
+import logic.User;
 
 @Component
-public class EchoHandler extends TextWebSocketHandler {
-	// ì ‘ì†ëœ í´ë¼ì´ì–¸íŠ¸ ëª©ë¡
-	private Set<WebSocketSession> clients = new HashSet<WebSocketSession>();
+public class EchoHandler extends TextWebSocketHandler  {
+
+	// 1:1 Ã¤ÆÃÀ» À§ÇØ map»ç¿ë
+	private Map<String, WebSocketSession> clients = new HashMap<String, WebSocketSession>();
+	@Autowired
+	private ShopService service;
+	// private Set<WebSocketSession> clients = new HashSet<WebSocketSession>();
 	
-	@Override // ì—°ê²°ëœ ê²½ìš°
+	// Å¬¶óÀÌ¾ğÆ® ¿¬°áÀÌÈÄ¿¡ ½ÇÇàµÇ´Â ¸Ş¼­µå
+	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception{
 		super.afterConnectionEstablished(session);
-		System.out.println("í´ë¼ì´ì–¸íŠ¸ ì ‘ì†");
-		clients.add(session);
+		System.out.println("Å¬¶óÀÌ¾ğÆ® Á¢¼Ó : " + session.getId());
+		User user = getUser(session);
+		System.out.println(user.getId());
+		clients.put(session.getId(), session);
+
 	}
 	
-	@Override // í´ë¼ì´ì–¸íŠ¸ì—ì„œ ë©”ì‹œì§€ ìˆ˜ì‹ 
+	private User getUser(WebSocketSession session) {
+		return (User)session.getAttributes().get("loginUser");
+	}
+
+	// Å¬¶óÀÌ¾ğÆ®°¡ À¥¼ÒÄÏ¼­¹ö·Î ¸Ş½ÃÁö¸¦ Àü¼ÛÇßÀ» ¶§ ½ÇÇàµÇ´Â ¸Ş¼­µå
+	@Override 
 	public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception{
 		super.handleMessage(session, message);
-		// loadMessage : í´ë¼ì´ì–¸íŠ¸ê°€ ì „ì†¡í•œ ë©”ì„¸ì§€
-		String loadMessage = (String)message.getPayload();
-		System.out.println("í´ë¼ì´ì–¸íŠ¸ ë©”ì„¸ì§€ : " + loadMessage);
-		clients.add(session); // ì¤‘ë³µëœ ê²½ìš° addë¶ˆê°€
-		// ì ‘ì†ëœ í´ë¼ì´ì–¸íŠ¸ë“¤ì—ê²Œ ìˆ˜ì‹ ëœ ë©”ì„¸ì§€ ì „ì†¡
-		for(WebSocketSession s : clients) s.sendMessage(new TextMessage(loadMessage));
+//		String loadMessage = (String)message.getPayload();
+//		clients.add(session); 
+//		for(WebSocketSession s : clients) s.sendMessage(new TextMessage(loadMessage));
+		User user = getUser(session);
+//		Message msg = new Message();
+//		int cn = (int)session.getAttributes().get("chatnum");
+//		int maxnum = service.msgmaxnum() + 1;
+//		msg.setMessagenum(1);
+//		msg.setChatnum(cn);
+//		msg.setMessagesender(user.getId());
+//		msg.setMessagecontent((String)message.getPayload());
+//		System.out.println(msg);
+//		service.insertmsg(msg);
+		System.out.println("send message");
+		Iterator<String> sessionIds = clients.keySet().iterator();
+		String sessionId = "";
+		while(sessionIds.hasNext()) {
+			sessionId = sessionIds.next();
+			//clients.get(sessionId).sendMessage(new TextMessage(user.getNickname() + ":" + message.getPayload()));
+			clients.get(sessionId).sendMessage(new TextMessage(user.getNickname() + ":" + message.getPayload()));
+		}
 	}
 	
-	@Override // ì˜¤ë¥˜ ë°œìƒì‹œ
+	@Override 
 	public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception{
 		super.handleTransportError(session, exception);
-		System.out.println("ì˜¤ë¥˜ ë°œìƒ : " + exception.getMessage());
 	}
 	
-	@Override // ì—°ê²° ì¢…ë£Œ
+	// Å¬¶óÀÌ¾ğÆ®°¡ ¿¬°áÀ» ²÷¾úÀ» ¶§ ½ÇÇàµÇ´Â ¸Ş¼­µå
+	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception{
 		super.afterConnectionClosed(session, status);
-		System.out.println("í´ë¼ì´ì–¸íŠ¸ ì ‘ì† í•´ì œ " + status.getReason());
-		clients.remove(session);
+//		clients.remove(session);
+		clients.remove(session.getId());
 	}
+
+
+
 }

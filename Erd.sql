@@ -2,12 +2,17 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 
+DROP TABLE IF EXISTS comment;
 DROP TABLE IF EXISTS board;
-DROP TABLE IF EXISTS chat;
+DROP TABLE IF EXISTS buy;
+DROP TABLE IF EXISTS message;
+DROP TABLE IF EXISTS chatroom;
 DROP TABLE IF EXISTS promise;
 DROP TABLE IF EXISTS good;
+DROP TABLE IF EXISTS history;
 DROP TABLE IF EXISTS interest;
 DROP TABLE IF EXISTS report;
+DROP TABLE IF EXISTS req;
 DROP TABLE IF EXISTS user;
 
 
@@ -29,33 +34,65 @@ CREATE TABLE board
 	boarduptime date NOT NULL COMMENT '게시판 작성날짜',
 	-- 게시판 분류 코드
 	boardtype int(2) NOT NULL COMMENT '게시판 분류 코드',
+	accept int(5),
 	PRIMARY KEY (boardnum)
 );
 
 
-CREATE TABLE chat
+CREATE TABLE buy
 (
-	-- 대화 건수
-	chatnum int NOT NULL AUTO_INCREMENT COMMENT '대화 건수',
-	-- 좋아요 누른 사람 id
-	id varchar(20) NOT NULL COMMENT '좋아요 누른 사람 id',
-	-- 좋아요 눌린 사람 id
-	goodid varchar(20) NOT NULL COMMENT '좋아요 눌린 사람 id',
-	-- 채팅 내용
-	chatcontent varchar(4000) COMMENT '채팅 내용',
-	-- 채팅 시 사진 전송url
-	chatpicurl varchar(50) COMMENT '채팅 시 사진 전송url',
+	-- 구매내역 번호
+	buynum int NOT NULL AUTO_INCREMENT COMMENT '구매내역 번호',
+	-- 유저id
+	id varchar(20) NOT NULL COMMENT '유저id',
+	-- 구매 상품 가격
+	buyprice int(10) NOT NULL COMMENT '구매 상품 가격',
+	-- 구매한 날짜
+	buyday date NOT NULL COMMENT '구매한 날짜',
+	-- 해당 유저 구매 건수
+	buycount int(5) NOT NULL COMMENT '해당 유저 구매 건수',
+	PRIMARY KEY (buynum)
+);
+
+
+CREATE TABLE chatroom
+(
+	-- 채팅방번호
+	chatnum int NOT NULL AUTO_INCREMENT COMMENT '채팅방번호',
+	-- 유저id
+	id varchar(20) NOT NULL COMMENT '유저id',
+	goodid varchar(20) NOT NULL,
 	PRIMARY KEY (chatnum)
+);
+
+
+CREATE TABLE comment
+(
+	-- 게시판 건수(공지사항, 건의사항)
+	boardnum int NOT NULL COMMENT '게시판 건수(공지사항, 건의사항)',
+	-- 건의사항 피드백 내용
+	commenttext varchar(4000) NOT NULL COMMENT '건의사항 피드백 내용',
+	-- 피드백날짜
+	commentday date NOT NULL COMMENT '피드백날짜',
+	PRIMARY KEY (boardnum)
 );
 
 
 CREATE TABLE good
 (
-	-- 좋아요 누른 사람 id
-	id varchar(20) NOT NULL COMMENT '좋아요 누른 사람 id',
-	-- 좋아요 눌린 사람 id
-	goodid varchar(20) NOT NULL COMMENT '좋아요 눌린 사람 id',
+	-- 유저id
+	id varchar(20) NOT NULL COMMENT '유저id',
+	goodid varchar(20) NOT NULL,
 	PRIMARY KEY (id, goodid)
+);
+
+
+CREATE TABLE history
+(
+	-- 유저id
+	id varchar(20) NOT NULL COMMENT '유저id',
+	historyid varchar(20) NOT NULL,
+	PRIMARY KEY (id, historyid)
 );
 
 
@@ -69,14 +106,29 @@ CREATE TABLE interest
 );
 
 
+CREATE TABLE message
+(
+	-- 메세지 고유번호
+	messagenum int NOT NULL AUTO_INCREMENT COMMENT '메세지 고유번호',
+	-- 채팅방번호
+	chatnum int NOT NULL COMMENT '채팅방번호',
+	-- 송신자
+	messagesender varchar(20) NOT NULL COMMENT '송신자',
+	-- 메세지 내용
+	messagecontent varchar(4000) NOT NULL COMMENT '메세지 내용',
+	-- 메세지 작성날짜
+	messageday date NOT NULL COMMENT '메세지 작성날짜',
+	PRIMARY KEY (messagenum)
+);
+
+
 CREATE TABLE promise
 (
 	-- 약속 건수
 	promisenum int NOT NULL AUTO_INCREMENT COMMENT '약속 건수',
-	-- 좋아요 누른 사람 id
-	id varchar(20) NOT NULL COMMENT '좋아요 누른 사람 id',
-	-- 좋아요 눌린 사람 id
-	goodid varchar(20) NOT NULL COMMENT '좋아요 눌린 사람 id',
+	-- 유저id
+	id varchar(20) NOT NULL COMMENT '유저id',
+	goodid varchar(20) NOT NULL,
 	-- 약속 잡기 제목
 	promisesubject varchar(200) NOT NULL COMMENT '약속 잡기 제목',
 	-- 약속잡기 내용
@@ -99,13 +151,21 @@ CREATE TABLE report
 	reportid varchar(20) NOT NULL COMMENT '피신고자 ID',
 	-- 신고자 ID
 	id varchar(20) NOT NULL COMMENT '신고자 ID',
+	reportcolumn varchar(100) NOT NULL,
 	-- 신고 내용
 	reportcontent varchar(4000) NOT NULL COMMENT '신고 내용',
 	-- 신고 날짜
 	reporttime date NOT NULL COMMENT '신고 날짜',
-	-- 신고 내역 처리여부
-	reportprocess int(2) NOT NULL COMMENT '신고 내역 처리여부',
 	PRIMARY KEY (reportnum)
+);
+
+
+CREATE TABLE req
+(
+	-- 유저id
+	id varchar(20) NOT NULL COMMENT '유저id',
+	goodid varchar(20) NOT NULL,
+	PRIMARY KEY (id, goodid)
 );
 
 
@@ -123,6 +183,7 @@ CREATE TABLE user
 	birthday date NOT NULL COMMENT '유저 생년월일',
 	-- 유저 거주지 선택
 	address varchar(8) NOT NULL COMMENT '유저 거주지 선택',
+	email varchar(30) NOT NULL,
 	-- 유저 닉네임
 	nickname varchar(20) NOT NULL COMMENT '유저 닉네임',
 	-- 유저 프로필사진 URL 1
@@ -157,6 +218,11 @@ CREATE TABLE user
 	interestname5 varchar(20) COMMENT '유저가 선택한 관심사 5',
 	-- 유저가 선택한 관심사 6
 	interestname6 varchar(20) COMMENT '유저가 선택한 관심사 6',
+	-- 상대방 나이 상한
+	agehigh varchar(10) NOT NULL COMMENT '상대방 나이 상한',
+	-- 상대방 나이 하한
+	agelow varchar(10) NOT NULL COMMENT '상대방 나이 하한',
+	goodcnt int(3) NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -164,7 +230,23 @@ CREATE TABLE user
 
 /* Create Foreign Keys */
 
-ALTER TABLE chat
+ALTER TABLE comment
+	ADD FOREIGN KEY (boardnum)
+	REFERENCES board (boardnum)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE message
+	ADD FOREIGN KEY (chatnum)
+	REFERENCES chatroom (chatnum)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE chatroom
 	ADD FOREIGN KEY (id, goodid)
 	REFERENCES good (id, goodid)
 	ON UPDATE RESTRICT
@@ -180,6 +262,14 @@ ALTER TABLE promise
 ;
 
 
+ALTER TABLE good
+	ADD FOREIGN KEY (id, goodid)
+	REFERENCES req (id, goodid)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
 ALTER TABLE board
 	ADD FOREIGN KEY (id)
 	REFERENCES user (id)
@@ -188,7 +278,15 @@ ALTER TABLE board
 ;
 
 
-ALTER TABLE good
+ALTER TABLE buy
+	ADD FOREIGN KEY (id)
+	REFERENCES user (id)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE history
 	ADD FOREIGN KEY (id)
 	REFERENCES user (id)
 	ON UPDATE RESTRICT
@@ -197,6 +295,14 @@ ALTER TABLE good
 
 
 ALTER TABLE report
+	ADD FOREIGN KEY (id)
+	REFERENCES user (id)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE req
 	ADD FOREIGN KEY (id)
 	REFERENCES user (id)
 	ON UPDATE RESTRICT

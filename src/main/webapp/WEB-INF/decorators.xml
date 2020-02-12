@@ -8,5 +8,11 @@
 		<pattern>/login/*</pattern>
 		<pattern>/main/test2*</pattern>
 		<pattern>/main/index*</pattern>
+		<pattern>/ajax/*</pattern>
+		<pattern>/user/password*</pattern>
+    	<pattern>/user/delete*</pattern>
+    	<pattern>/user/imgup*</pattern>
+    	<pattern>/user/imgup2*</pattern>
+    	<pattern>/user/imgup3*</pattern>    
 	</excludes>
 </decorators>

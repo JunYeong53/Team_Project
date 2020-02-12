@@ -1,0 +1,1009 @@
+/*¿¬¾ÖÀû¼º°Ë»ç*/
+#selfLoveWrap {
+	float: left;
+	width: 778px;
+	font-size: 12px;
+}
+
+#selfLoveWrap .selfImg-1 {
+	display: block;
+}
+
+#selfLoveWrap .selfImg-2 {
+	display: block;
+	float: left;
+}
+
+#selfLoveWrap .selfImg-3 {
+	display: block;
+	float: right;
+}
+
+#selfLoveWrap .selfImg-4 {
+	display: block;
+	margin: 21px auto 0;
+}
+
+#selfLoveWrap .mainForm {
+	margin: 0;
+	padding: 0;
+	width: 778px;
+	border: 0;
+}
+
+#selfLoveWrap .sub_Form {
+	margin: 0;
+	padding: 10px 20px;
+	width: 738px;
+	background: #ffd0cc;
+	border: 0;
+}
+
+#selfLoveWrap .sub_Fieldset {
+	margin: 0;
+	padding: 20px 0;
+	width: 738px;
+	background: #ffffff;
+	border: 0;
+}
+
+#selfLoveWrap .sub_Fieldset .hiddenL {
+	position: absolute;
+	visibility: hidden;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+#selfLoveWrap .sub_Fieldset .row-1 {
+	padding: 0 15px;
+	width: 708px;
+	background: #ffffff;
+	overflow: hidden;
+}
+
+#selfLoveWrap .sub_Fieldset .row-2 {
+	padding: 0 15px;
+	width: 708px;
+	background: #f1f1f1;
+	overflow: hidden;
+}
+
+#selfLoveWrap .sub_Fieldset .qLabel-1 {
+	float: left;
+	padding: 0 0 0 5px;
+	line-height: 44px;
+}
+
+#selfLoveWrap .sub_Fieldset .radioWrap {
+	float: right;
+	overflow: hidden;
+}
+
+#selfLoveWrap .sub_Fieldset .aInput-1 {
+	float: left;
+	margin: 14px 7px;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+}
+
+#selfLoveWrap .sub1_Fieldset {
+	margin: 0;
+	padding: 20px;
+	width: 698px;
+	background: #ffffff;
+	border: 0;
+}
+
+#selfLoveWrap .sub1_Fieldset .hiddenL {
+	position: absolute;
+	visibility: hidden;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+#selfLoveWrap .sub1_Fieldset .selfTxt-1 {
+	width: 698px;
+	border-bottom: 1px solid #453d3a;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 39px;
+}
+
+#selfLoveWrap .sub1_Fieldset .row-1 {
+	margin: 15px 0;
+	width: 698px;
+	overflow: hidden;
+}
+
+#selfLoveWrap .sub1_Fieldset .section-1 {
+	float: left;
+	width: 369px;
+}
+
+#selfLoveWrap .sub1_Fieldset .section-2 {
+	float: left;
+	width: 329px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testLabel-1 {
+	float: left;
+	width: 120px;
+	height: 22px;
+	font-size: 14px;
+	color: #646464;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testLabel-2 {
+	float: left;
+	margin: 0 7px 0 0;
+	height: 22px;
+	font-size: 14px;
+	color: #646464;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testLabel-3 {
+	float: left;
+	margin: 0 5px;
+	height: 22px;
+	font-size: 14px;
+	color: #646464;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testLabel-4 {
+	float: left;
+	margin: 0 5px;
+	height: 22px;
+	font-size: 11px;
+	color: #646464;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-1 {
+	float: left;
+	width: 120px;
+	height: 16px;
+	font-family: Dotum;
+	line-height: 16px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-2 {
+	float: left;
+	width: 80px;
+	height: 16px;
+	font-family: Dotum;
+	line-height: 16px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-3 {
+	float: left;
+	margin: 4px 3px 0 0;
+	padding: 0;
+	width: 14px;
+	height: 14px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-4 {
+	float: left;
+	width: 60px;
+	height: 22px;
+	font-family: Dotum;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-5 {
+	float: left;
+	width: 40px;
+	height: 16px;
+	font-family: Dotum;
+	line-height: 16px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-6 {
+	float: left;
+	width: 100px;
+	height: 16px;
+	font-family: Dotum;
+	line-height: 16px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-7 {
+	float: left;
+	width: 120px;
+	height: 22px;
+	font-family: Dotum;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-8 {
+	float: left;
+	width: 100px;
+	height: 22px;
+	font-family: Dotum;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-9 {
+	margin: 0;
+	padding: 5px;
+	width: 530px;
+	height: 30px;
+	background: #ffffff;
+	border: 1px solid #cecece;
+	font-size: 12px;
+	color: #5a5a5a;
+	overflow: auto;
+}
+
+#selfLoveWrap .sub1_Fieldset .testBtn-1 {
+	display: block;
+	float: left;
+	margin: 0 0 0 8px;
+	width: 80px;
+	background: #646464;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 22px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testBtn-2 {
+	display: block;
+	float: left;
+	margin: 2px 0 0 0;
+}
+
+#selfLoveWrap .resultWrap-1 {
+	padding: 20px;
+	width: 738px;
+	background: #ffd0cc;
+}
+
+#selfLoveWrap .resultWrap-2 {
+	padding: 20px;
+	width: 698px;
+	background: #ffffff;
+}
+
+#selfLoveWrap .selfTxt-2 {
+	float: left;
+	width: 450px;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 38px;
+}
+
+#selfLoveWrap .snsWrap {
+	float: right;
+	color: #696969;
+	line-height: 38px;
+	overflow: hidden;
+}
+
+#selfLoveWrap .selfImg-5 {
+	display: block;
+	float: left;
+	margin: 3px 0 3px 6px;
+}
+
+#selfLoveWrap .resultWrap-3 {
+	padding: 40px 0;
+	width: 698px;
+	border-bottom: 1px solid #bac2c5;
+	overflow: hidden;
+}
+
+#selfLoveWrap .selfImg-6 {
+	display: block;
+	float: left;
+	margin: 0 35px 0 0;
+}
+
+#selfLoveWrap .selfTxt-3 {
+	font-size: 18px;
+	color: #ff4740;
+	font-weight: bold;
+}
+
+#selfLoveWrap .selfTxt-4 {
+	margin: 10px 0 20px;
+	color: #444444;
+	line-height: 18px;
+}
+
+#selfLoveWrap .selfTxt-5 {
+	padding: 20px;
+	width: 496px;
+	background: #ededed;
+	color: #444444;
+	line-height: 18px;
+}
+
+#selfLoveWrap .graphWrap {
+	float: left;
+	width: 496px;
+	height: 210px;
+	background: url(/html/love_test/self_love/img/selfloveImg_12.jpg)
+		no-repeat left top;
+	position: relative;
+}
+
+#selfLoveWrap .graph {
+	position: absolute;
+	bottom: 43px;
+	width: 23px;
+	background: #42bdc4;
+}
+
+#selfLoveWrap .Bar-1 {
+	left: 86px;
+}
+
+#selfLoveWrap .Bar-2 {
+	left: 172px;
+}
+
+#selfLoveWrap .Bar-3 {
+	left: 254px;
+}
+
+#selfLoveWrap .Bar-4 {
+	left: 337px;
+}
+
+#selfLoveWrap .Bar-5 {
+	left: 421px;
+}
+
+#selfLoveWrap .selfTxt-6 {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+	color: #444444;
+	font-weight: bold;
+	line-height: 24px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testLabel-5 {
+	font-size: 14px;
+	color: #000000;
+}
+
+#selfLoveWrap .sub1_Fieldset .testLabel-6 {
+	margin: 8px 0 5px;
+	font-size: 12px;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-10 {
+	margin: 8px 0;
+	width: 327px;
+	height: 42px;
+	background: #ffffff;
+	border: 1px solid #7f9db9;
+	font-family: Dotum;
+	font-size: 12px;
+	color: #5a5a5a;
+	overflow: auto;
+}
+
+#selfLoveWrap .sub1_Fieldset .testInput-11 {
+	padding: 0;
+	vertical-align: middle;
+}
+
+#selflove {
+	display: block;
+	width: 100%;
+	min-width: 1382px;
+	padding: 98px 0 0 0;
+	/*padding: 0;*/
+}  
+
+#selflove .temp {
+	display: block;
+	margin: 0 auto;
+	padding: 0 131px;
+	width: 1120px;
+}
+
+#selflove .first {
+	display: block;
+	width: 100%;
+	min-width: 1120px;
+	height: 723px;
+	background: url(/html/love_test/self_love/img/bg_01.jpg) center top
+		no-repeat;
+}
+
+#selflove .second {
+	display: block;
+	width: 100%;
+	min-width: 1120px;   
+	height: 723px;
+	background: url(../../testcss2/img/bg_02.jpg) center top no-repeat;
+}
+    
+#selflove .third {
+	display: block;
+	width: 100%; 
+	min-width: 1120px;  
+	height: 723px;
+	background: url(../../testcss2/img/bg_02.jpg) center top no-repeat;
+}
+
+#selflove .fourth { 
+	display: block;
+	width: 100%;
+	min-width: 1120px;
+	background: #fae2e5;
+	padding: 0 0 100px 0;
+}
+
+#selflove .first .temp {
+	height: 723px;
+}
+
+#selflove .first .temp h1 {
+	position: static;
+	visibility: visible;
+	display: block;
+	float: left;
+	width: 100%;
+	height: 345px;
+	font-size: 0;
+}
+
+#selflove .first .temp div {
+	display: block;
+	float: left;
+	padding: 0 0 80px 630px;
+	width: 490px;
+	font-size: 12px;
+	color: #555555;
+	line-height: 24px;
+}
+
+#selflove .first .temp #flip {
+	clear: both;
+	display: block;
+	float: right;
+	margin: 0 106px 0 0;
+	width: 383px;
+	height: 74px;
+}
+
+#selflove .second .temp {
+	width: 888px;
+	height: 724px;
+}
+
+#selflove .second .temp h1 {
+	position: static;
+	visibility: visible;
+	display: block;
+	float: left;
+	width: 100%;
+	height: 193px;
+	font-size: 0;
+}
+
+#selflove .second .temp .q {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 700px;
+	height: 161px;
+	font-size: 28px;
+	color: #343434;
+	line-height: 34px;
+	text-align: center;
+}
+
+#selflove .second .temp .q .middle {
+	display: table-cell;
+	width: 700px;
+	vertical-align: middle;
+	height: 161px;
+}
+
+#selflove .second .temp .a {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 555px;
+	height: 89px;
+}
+
+#selflove .second .temp .a table tr td label {
+	display: block;
+	float: left;
+	width: 89px;
+	height: 89px;
+	background: url(../../testcss2/img/radio_off.jpg) center top
+		no-repeat;
+	position: relative; 
+	font-size: 0;
+}
+
+#selflove .second .temp .a table tr td label input[type="radio"] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+} 
+
+#selflove .second .temp .a table tr td .on {
+	background: url(../../testcss2/img/radio_on.jpg) center top
+		no-repeat; 
+}  
+
+#selflove .second .temp .state {
+	clear: both;
+	display: block;
+	float: left;
+	margin: 70px 0 0;
+	width: 100%;
+	font-size: 14px;
+	color: #343434;
+	text-align: center;
+	line-height: 18px;
+}
+
+#selflove .second .temp .state div {
+	display: inline-block;
+	padding: 0 7px;
+}
+
+#selflove .second .temp .state img {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#selflove .second .temp .remain {
+	clear: both;
+	display: block;
+	float: left;
+	margin: 50px 0 0;
+	width: 100%;
+	font-size: 14px;
+	color: #ff316d;
+	text-align: center;
+}
+
+#selflove .third .temp {
+	width: 888px;
+	height: 724px;
+	position: relative;
+}
+
+#selflove .third .temp h1 {
+	position: static;
+	visibility: visible;
+	display: block;
+	float: left;
+	width: 100%;
+	height: 193px;
+	font-size: 0;
+}
+
+#selflove .third .temp .type1 {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 700px;
+	height: 95px;
+	font-size: 14px;
+	color: #343434;
+	line-height: 22px;
+	text-align: center;
+}
+
+#selflove .third .temp .type1 .middle {
+	display: table-cell;
+	width: 700px;
+	vertical-align: middle;
+	height: 95px;
+}
+
+#selflove .third .temp .type2 {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 530px;
+}
+
+#selflove .third .temp .type2 table td .ip_txt {
+	display: block;
+	float: left;
+	height: 43px;
+	line-height: 43px;
+	color: #535353;
+	padding: 0 4px;
+	font-family: Malgun Gothic, ¸¼Àº °íµñ, Dotum, µ¸¿ò, Gulim, ±¼¸²;
+	font-size: 16px;
+	background: #ffffff;
+	border: 1px solid #dedede;
+}
+
+#selflove .third .temp .type2 table td select {
+	display: block;
+	float: left;
+	height: 44px;
+	font-family: Malgun Gothic, ¸¼Àº °íµñ, Dotum, µ¸¿ò, Gulim, ±¼¸²;
+	font-size: 16px;
+	color: #535353;
+	background: #ffffff;
+	border: 1px solid #dedede;
+	line-height: 31px;
+}
+
+#selflove .third .temp .type2 table td select {
+	height: auto;
+	padding: 10px 0;
+	\0
+	/ie8+9;
+}
+
+#selflove .third .temp .type2 table td .submit {
+	display: block;
+	margin: 0 auto;
+	width: 281px;
+	height: 59px;
+	background: url(/html/love_test/self_love/img/btn_03.jpg) left top
+		no-repeat;
+	font-size: 0;
+}
+
+#selflove .third .temp .type2 table td .sex {
+	display: block;
+	float: right;
+	width: 160px;
+}
+
+#selflove .third .temp .type2 table td .sex label {
+	position: relative;
+}
+
+#selflove .third .temp .type2 table td .sex label input[type="radio"] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+}
+
+#selflove .third .temp .type2 table td .sex .m, #selflove .third .temp .type2 table td .sex .w
+	{
+	display: block;
+	float: left;
+	width: 78px;
+	height: 43px;
+	line-height: 40px;
+	text-align: center;
+	background: #ffffff;
+	border: 1px solid #dedede;
+	font-size: 16px;
+	color: #343434;
+}
+
+#selflove .third .temp .type2 table td .sex .m_on, #selflove .third .temp .type2 table td .sex .w_on
+	{
+	display: block;
+	float: left;
+	width: 78px;
+	height: 43px;
+	line-height: 40px;
+	text-align: center;
+	background: #ffffff;
+	border: 1px solid #dedede;
+	font-size: 16px;
+	color: #343434;
+	background: #6f7e91;
+	border: 1px solid #6f7e91;
+	color: #ffffff;
+}
+
+#selflove .third .temp .type2 table td .sex .married_rd {
+	display: block;
+	float: left;
+	width: 78px;
+	height: 43px;
+	line-height: 40px;
+	text-align: center;
+	background: #ffffff;
+	border: 1px solid #dedede;
+	font-size: 16px;
+	color: #343434;
+}
+
+#selflove .third .temp .type2 table td .sex .on {
+	display: block;
+	float: left;
+	width: 78px;
+	height: 43px;
+	line-height: 40px;
+	text-align: center;
+	background: #ffffff;
+	border: 1px solid #dedede;
+	font-size: 16px;
+	color: #343434;
+	background: #6f7e91;
+	border: 1px solid #6f7e91;
+	color: #ffffff;
+}
+
+#selflove .third .temp .privacy {
+	display: none;
+	position: absolute;
+	top: 133px;
+	left: 179px;
+	padding: 10px;
+	width: 510px;
+	background: #ffffff;
+	border: 1px solid #e7e7e7;
+}
+
+#selflove .third .temp .privacy .agree {
+	display: block;
+	float: left;
+	width: 510px;
+	text-align: left;
+	overflow: hidden;
+	position: relative;
+}
+
+#selflove .third .temp .privacy .agree label {
+	display: block;
+	float: left;
+	width: 100%;
+	font-size: 11px;
+	line-height: 14px;
+}
+
+#selflove .third .temp .privacy .agree label input[type="checkbox"] {
+	vertical-align: middle;
+}
+
+#selflove .third .temp .privacy .agree .close {
+	display: block;
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	right: 0;
+	top: 0;
+	background: url(/html/main_img_2016/close_01.gif) left top no-repeat;
+	font-size: 0;
+}
+
+#selflove .third .temp .privacy .agree .cnt {
+	display: block;
+	float: left;
+	width: 248px;
+	height: 68px;
+	border: 1px solid #dedede;
+	overflow-y: auto;
+	margin: 6px 0;
+	font-size: 11px;
+	color: #555555;
+	line-height: 16px;
+}
+
+#selflove .fourth .temp {
+	overflow: hidden;
+}
+
+#selflove .fourth .temp .type1 {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 700px;
+	height: 162px;
+	font-size: 32px;
+	color: #222222;
+	text-align: center;
+}
+
+#selflove .fourth .temp .type1 .middle {
+	display: table-cell;
+	width: 700px;
+	vertical-align: middle;
+	height: 162px;
+}
+
+#selflove .fourth .temp .type2 {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 870px;
+	height: 71px;
+}
+
+#selflove .fourth .temp .type2 .bar {
+	display: block;
+	float: left;
+	width: 1px;
+	height: 71px;
+	background: url(../../testcss2/img/tab_00.jpg) left top
+		no-repeat;
+	font-size: 0;    
+}
+ 
+#selflove .fourth .temp .type2 .tab1 { 
+	display: block;
+	float: left;
+	width: 174px;
+	height: 71px;
+	background: url(../../testcss2/img/tab_01.jpg) left top
+		no-repeat;
+	font-size: 0;
+}
+
+#selflove .fourth .temp .type2 .tab2 {
+	display: block;
+	float: left;
+	width: 172px;
+	height: 71px;
+	background: url(../../testcss2/img/tab_02.jpg) left top
+		no-repeat;
+	font-size: 0;
+}
+
+#selflove .fourth .temp .type2 .tab3 {
+	display: block;
+	float: left;
+	width: 173px;
+	height: 71px;
+	background: url(../../testcss2/img/tab_03.jpg) left top
+		no-repeat;
+	font-size: 0;
+}
+
+#selflove .fourth .temp .type2 .tab4 {
+	display: block;
+	float: left;
+	width: 172px;
+	height: 71px;
+	background: url(../../testcss2/img/tab_04.jpg) left top
+		no-repeat;
+	font-size: 0;
+}
+
+#selflove .fourth .temp .type2 .tab5 {
+	display: block;
+	float: left;
+	width: 175px;
+	height: 71px;
+	background: url(../../testcss2/img/tab_05.jpg) left top
+		no-repeat;
+	font-size: 0;
+}
+
+#selflove .fourth .temp .type3 {
+	clear: both;
+	display: block;
+	float: left;
+	margin: 60px 0 0;
+	padding: 10px 0;
+	width: 1120px;
+	background: #ffffff;
+	overflow: hidden;
+}
+
+#selflove .fourth .temp .type3 #sc_01 {
+	display: block;
+	margin: 0 auto;
+	padding: 50px 20px 50px 190px;
+	width: 800px;
+	min-height: 170px;
+	background: url(../../testcss2/img/result_01.jpg) left center
+		no-repeat;
+	border-bottom: 1px solid #e7e7e7;
+	overflow: hidden;
+}
+
+#selflove .fourth .temp .type3 #sc_02 {
+	display: block;
+	margin: 0 auto;
+	padding: 50px 20px 50px 190px;
+	width: 800px;
+	min-height: 170px;
+	background: url(../../testcss2/img/result_02.jpg) left center
+		no-repeat;
+	border-bottom: 1px solid #e7e7e7;
+	overflow: hidden;
+}
+
+#selflove .fourth .temp .type3 #sc_03 {
+	display: block;
+	margin: 0 auto;
+	padding: 50px 20px 50px 190px;
+	width: 800px;
+	min-height: 170px;
+	background: url(../../testcss2/img/result_03.jpg) left center
+		no-repeat;
+	border-bottom: 1px solid #e7e7e7;
+	overflow: hidden;
+}
+
+#selflove .fourth .temp .type3 #sc_04 {
+	display: block;
+	margin: 0 auto;
+	padding: 50px 20px 50px 190px;
+	width: 800px;
+	min-height: 170px;
+	background: url(../../testcss2/img/result_04.jpg) left center
+		no-repeat;
+	border-bottom: 1px solid #e7e7e7;
+	overflow: hidden;
+}
+
+#selflove .fourth .temp .type3 #sc_05 {
+	display: block;
+	margin: 0 auto;
+	padding: 50px 20px 50px 190px;
+	width: 800px;
+	min-height: 170px;
+	background: url(../../testcss2/img/result_05.jpg) left center
+		no-repeat;
+	border-bottom: 1px solid #e7e7e7;
+	overflow: hidden;
+}
+
+#selflove .fourth .temp .type3 .txt-type1 {
+	display: block;
+	float: left;
+	width: 100%;
+	font-size: 18px;
+	color: #ff185b;
+	font-weight: 600;
+}
+
+#selflove .fourth .temp .type3 .txt-type2 {
+	display: block;
+	float: left;
+	margin: 10px 0 0;
+	width: 100%;
+	font-size: 14px;
+	color: #222222;
+	line-height: 30px;
+}
+
+#selflove .freeconsult {
+	display: block;
+	width: 100%;
+	min-width: 1120px;
+	height: 277px;
+	background: #5a6078 url(/html/love_test/self_love/img/bg_03.jpg) center
+		top no-repeat;
+}
+
+#selflove .freeconsult div {
+	display: block;
+	margin: 0 auto;
+	width: 1120px;
+	height: 277px;
+}
+
+#selflove .freeconsult div .left {
+	display: block;
+	margin: 155px 0 0 236px;
+	float: left;
+	width: 317px;
+	height: 63px;
+	font-size: 0;
+}
+
+#selflove .freeconsult div .right {
+	display: block;
+	margin: 155px 0 0 10px;
+	float: left;
+	width: 317px;
+	height: 63px;
+	font-size: 0;
+}

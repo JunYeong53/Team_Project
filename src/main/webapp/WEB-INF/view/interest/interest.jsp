@@ -6,65 +6,64 @@
 <head>
 <meta charset="UTF-8">
 <title>관심사</title>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.d2').show();
-		$('.d1').hide();
-		$(window).resize(function (){
-			  // width값을 가져오기
-			  var width_size = window.outerWidth;
-			  
-			  // 800 이하인지 if문으로 확인
-			  if (width_size <= 700) {
-			    $('.d1').show();
-			    $('.d2').hide();
-			    
-			  }
-			  if (width_size > 700) {
-				 $('.d2').show();
-				 $('.d1').hide();
-				}
-			})
-	})
-</script>
+
+<style type="text/css">
+	.d1{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+	}
+	.d2{
+		width: 240px;
+  		padding-top: 16px;
+    	padding-bottom: 16px;
+	}
+	.d3{
+		padding-right: 4px;
+    	padding-left: 4px;
+	}
+	.d4{
+		padding: 10px;
+		border: 1px solid #d8d7dc;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+	}
+	.d5_left{
+		
+	}
+	.intimg{
+		width: 60px;
+   		height: 60px;
+   		border-radius: 100%;
+	}
+	.d5_right{
+		padding-left: 10px;
+		font-size: 17px;
+	}
+</style>
+
 </head>
 <body>
 <br>
-<h1>비슷한 관심사를 가진 상대를 찾아보세요!</h1><br>
+<h1 style="color: #575757; font-size: 2.2rem; font-weight: 700;">비슷한 관심사를 가진 상대를 찾아보세요!</h1><br>
 <br>
 
 <div class="d1">
-<table>
-	<c:forEach begin="1" end="20" varStatus="status">
-		<c:if test="${status.count % 3 == 1}">
-			<tr>
-		</c:if>
-		<td>
-			<a href="../interest/member.shop"><img src="" width="150" height="160"></a><br>
-			관심사 이름 &nbsp; 참가 인원 : 0 명
-		</td>
-		<c:if test="${status.count % 3 == 0}">
-			</tr>
-		</c:if>
+	<c:forEach var="interestlist" items="${interestlist}" varStatus="status">
+	<div class="d2">
+		<div class="d3">
+			<div class="d4" onclick="javascript:location.href='../interest/member.shop?interestname=${interestlist.interestname}'">
+				<div class="d5_left">
+					<img src="../interest/${interestlist.interestpicurl}" class="intimg">
+				</div>
+				<div class="d5_right">
+					${interestlist.interestname}
+				</div>
+			</div>
+		</div>
+	</div>
 	</c:forEach>
-</table>
-</div>
-
-<div class="d2">
-<table>
-	<c:forEach begin="1" end="20" varStatus="status">
-		<c:if test="${status.count % 5 == 1}">
-			<tr>
-		</c:if>
-		<td>
-			<a href="../interest/member.shop"><img src="" width="150" height="160"></a><br>
-			관심사 이름 &nbsp; 참가 인원 : 0 명
-		</td>
-		<c:if test="${status.count % 5 == 0}">
-			</tr>
-		</c:if>
-	</c:forEach>
-</table>
 </div>
 
 </body>

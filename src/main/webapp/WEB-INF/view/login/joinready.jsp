@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V9</title>
+	<title>PINGLE</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -53,7 +53,7 @@
 				</span>
 
 				<div id="d1" style="padding-left: 20%">
-					<img src="" width="150" height="160">
+					<img src="img/${user.profileurl1}" width="150" height="160">
 				</div>
 				<br>
 				<div id="d2">

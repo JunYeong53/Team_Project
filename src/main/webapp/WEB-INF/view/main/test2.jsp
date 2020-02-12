@@ -1,319 +1,265 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath}" />
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html lang="en">
-	<head> 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<link rel="icon" href="favicon.ico">
-		<title>Lattes - Onepage Multipurpose Bootstrap HTML</title>
-		<!-- Bootstrap core CSS -->
-		<link href="${path}/testcss/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<!-- Custom styles for this template -->
-		<link href="${path}/testcss/css/owl.carousel.css" rel="stylesheet">
-		<link href="${path}/testcss/css/owl.theme.default.min.css"  rel="stylesheet">
-		<link href="${path}/testcss/css/style.css" rel="stylesheet">
-		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-		<script src="${path}/testcss/js/ie-emulation-modes-warning.js"></script>
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>PINGLE</title>
 
-<script>
-var main_step = 0;
-var array_answer = "";
-var array_question = [
-	"ë‚˜ëŠ” ê±±ì •ì„ ë§Žì´ í•˜ì§€ ì•ŠëŠ”ë‹¤.",
-	"ë‚˜ëŠ” ë‚¨ì„ ë•ëŠ” ê²ƒì„ ì¢‹ì•„í•œë‹¤.",
-	"ë‚˜ëŠ” ëª¨ë“  ì¼ì„ ê³„íšì„ ì„¸ì›Œì„œ í•œë‹¤.",
-	"ë‚˜ëŠ” ê¸°ë°œí•œ ì•„ì´ë””ì–´ë“¤ì„ ë§Žì´ ê°€ì§€ê³  ìžˆë‹¤.",
-	"ë‚˜ëŠ” ì‚¬ëžŒì„ íŽ¸í•˜ê²Œ í•œë‹¤.",
-	"ë‚˜ëŠ” ë¬¼ê±´ì„ ì“°ê³  ë‚œ í›„ ì œìžë¦¬ì— ê°–ë‹¤ ë†“ëŠ”<br />ê²ƒì„ ìžì£¼ ìžŠëŠ”ë‹¤.",
-	"ë‚˜ëŠ” ë§ìˆ˜ê°€ ì ë‹¤.",
-	"ë‚˜ëŠ” ì–´ë µë”ë¼ë„ ë„ì „ì ì¸ ê²ƒë“¤ì„ ì½ëŠ” ê²ƒì„<br />ì¢‹ì•„í•œë‹¤.",
-	"ë‚˜ëŠ” ì›¬ë§Œí•´ì„œëŠ” ì§œì¦ë‚´ì§€ ì•ŠëŠ”ë‹¤.",
-	"ë‚˜ëŠ” ë‹¤ë¥¸ ì‚¬ëžŒì—ê²Œ ì‰½ê²Œ ë‹¤ê°€ê°€ì§€ ëª»í•œë‹¤.",
-	"ë‚˜ëŠ” ë§ˆìŒì´ ë”°ëœ»í•˜ë‹¤.",
-	"ë‚˜ëŠ” ì–´ì°¨í”¼ í•´ì•¼ í•˜ëŠ” ê·€ì°®ì€ ì¼ë“¤ì„<br />ë¯¸ë£¨ì§€ ì•Šê³  ë°”ë¡œ í•´ ì¹˜ìš´ë‹¤.",
-	"ë‚˜ëŠ” ëŒ€í™”ë¥¼ ë¨¼ì € ì‹œìž‘í•˜ëŠ” íŽ¸ì´ë‹¤.",
-	"ë‚˜ëŠ” ì–´ë–¤ ì¼ì„ ëŠ˜ ìƒˆë¡œìš´ ë°©ë²•ìœ¼ë¡œ<br />í•´ë³´ê¸°ë¥¼ ì¢‹ì•„í•œë‹¤.",
-	"ë‚´ ìƒê°ëŒ€ë¡œ ì¼ì´ í’€ë¦¬ì§€ ì•Šìœ¼ë©´ ì‹¤ë§ê°ì„ ê·¸ëŒ€ë¡œ í‘œí˜„í•œë‹¤.",
-	"ë‚˜ëŠ” ìŠ¤íŠ¸ë ˆìŠ¤ë¥¼ ìž˜ ë°›ëŠ”ë‹¤."];
+<link href="../testcss2/css/common.css" rel="stylesheet" type="text/css">
+<link href="../testcss2/css/selflove.css" rel="stylesheet" type="text/css">
+<link href="../testcss2/css/sub_laylout.css" rel="stylesheet" type="text/css">
 
-	function change_answer_state(obj) {
-		var now_index;
 
-		now_index = $("#SLForm").find(":radio[name='answer']").index(obj);
+<script type="text/javascript" src="../testcss2/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../testcss2/js/include_ex_script.js"></script>
 
-		if (array_answer != "") {
-			array_answer = array_answer
-					+ ","
-					+ $("#SLForm").find(":radio[name='answer']").eq(now_index)
-							.val();
-		} else {
-			array_answer = $("#SLForm").find(":radio[name='answer']").eq(
-					now_index).val();
-		}
 
-		$(".answer").eq(0).removeClass("on");
-		$(".answer").eq(1).removeClass("on");
-		$(".answer").eq(2).removeClass("on");
-		$(".answer").eq(3).removeClass("on");
+<script type="text/javascript">
+   var main_step = 0;
+   var array_answer = "";
+   var array_question = [ "³ª´Â °ÆÁ¤À» ¸¹ÀÌ ÇÏÁö ¾Ê´Â´Ù.", "³ª´Â ³²À» µ½´Â °ÍÀ» ÁÁ¾ÆÇÑ´Ù.",
+         "³ª´Â ¸ðµç ÀÏÀ» °èÈ¹À» ¼¼¿ö¼­ ÇÑ´Ù.", "³ª´Â ±â¹ßÇÑ ¾ÆÀÌµð¾îµéÀ» ¸¹ÀÌ °¡Áö°í ÀÖ´Ù.",
+         "³ª´Â »ç¶÷À» ÆíÇÏ°Ô ÇÑ´Ù.", "³ª´Â ¹°°ÇÀ» ¾²°í ³­ ÈÄ Á¦ÀÚ¸®¿¡ °®´Ù ³õ´Â<br />°ÍÀ» ÀÚÁÖ ÀØ´Â´Ù.",
+         "³ª´Â ¸»¼ö°¡ Àû´Ù.", "³ª´Â ¾î·Æ´õ¶óµµ µµÀüÀûÀÎ °ÍµéÀ» ÀÐ´Â °ÍÀ»<br />ÁÁ¾ÆÇÑ´Ù.",
+         "³ª´Â À¢¸¸ÇØ¼­´Â Â¥Áõ³»Áö ¾Ê´Â´Ù.", "³ª´Â ´Ù¸¥ »ç¶÷¿¡°Ô ½±°Ô ´Ù°¡°¡Áö ¸øÇÑ´Ù.", "³ª´Â ¸¶À½ÀÌ µû¶æÇÏ´Ù.",
+         "³ª´Â ¾îÂ÷ÇÇ ÇØ¾ß ÇÏ´Â ±ÍÂúÀº ÀÏµéÀ»<br />¹Ì·çÁö ¾Ê°í ¹Ù·Î ÇØ Ä¡¿î´Ù.",
+         "³ª´Â ´ëÈ­¸¦ ¸ÕÀú ½ÃÀÛÇÏ´Â ÆíÀÌ´Ù.", "³ª´Â ¾î¶² ÀÏÀ» ´Ã »õ·Î¿î ¹æ¹ýÀ¸·Î<br />ÇØº¸±â¸¦ ÁÁ¾ÆÇÑ´Ù.",
+         "³» »ý°¢´ë·Î ÀÏÀÌ Ç®¸®Áö ¾ÊÀ¸¸é ½Ç¸Á°¨À» ±×´ë·Î Ç¥ÇöÇÑ´Ù.", "³ª´Â ½ºÆ®·¹½º¸¦ Àß ¹Þ´Â´Ù." ];
 
-		if (now_index == 0) {
-			$(".answer").eq(0).addClass("on");
-			$(".answer").eq(1).removeClass("on");
-			$(".answer").eq(2).removeClass("on");
-			$(".answer").eq(3).removeClass("on");
+   function change_answer_state(obj) {
+      var now_index;
 
-			$("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
-					true);
-			$("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
-					false);
-		} else if (now_index == 1) {
-			$(".answer").eq(0).removeClass("on");
-			$(".answer").eq(1).addClass("on");
-			$(".answer").eq(2).removeClass("on");
-			$(".answer").eq(3).removeClass("on");
+      now_index = $("#SLForm").find(":radio[name='answer']").index(obj);
 
-			$("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
-					true);
-			$("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
-					false);
-		} else if (now_index == 2) {
-			$(".answer").eq(0).removeClass("on");
-			$(".answer").eq(1).removeClass("on");
-			$(".answer").eq(2).addClass("on");
-			$(".answer").eq(3).removeClass("on");
+      if (array_answer != "") {
+         array_answer = array_answer
+               + ","
+               + $("#SLForm").find(":radio[name='answer']").eq(now_index)
+                     .val();
+      } else {
+         array_answer = $("#SLForm").find(":radio[name='answer']").eq(
+               now_index).val();
+      }
 
-			$("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
-					true);
-			$("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
-					false);
-		} else if (now_index == 3) {
-			$(".answer").eq(0).removeClass("on");
-			$(".answer").eq(1).removeClass("on");
-			$(".answer").eq(2).removeClass("on");
-			$(".answer").eq(3).addClass("on");
+      $(".answer").eq(0).removeClass("on");
+      $(".answer").eq(1).removeClass("on");
+      $(".answer").eq(2).removeClass("on");
+      $(".answer").eq(3).removeClass("on");
 
-			$("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
-					false);
-			$("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
-					true);
-		}
+      if (now_index == 0) {
+         $(".answer").eq(0).addClass("on");
+         $(".answer").eq(1).removeClass("on");
+         $(".answer").eq(2).removeClass("on");
+         $(".answer").eq(3).removeClass("on");
 
-		setTimeout("change_question()", 500);
-	}
+         $("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
+               true);
+         $("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
+               false);
+      } else if (now_index == 1) {
+         $(".answer").eq(0).removeClass("on");
+         $(".answer").eq(1).addClass("on");
+         $(".answer").eq(2).removeClass("on");
+         $(".answer").eq(3).removeClass("on");
 
-	function change_question() {
-		main_step = main_step + 1;
+         $("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
+               true);
+         $("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
+               false);
+      } else if (now_index == 2) {
+         $(".answer").eq(0).removeClass("on");
+         $(".answer").eq(1).removeClass("on");
+         $(".answer").eq(2).addClass("on");
+         $(".answer").eq(3).removeClass("on");
 
-		if (main_step == 16) {
-			//alert(array_answer);
+         $("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
+               true);
+         $("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
+               false);
+      } else if (now_index == 3) {
+         $(".answer").eq(0).removeClass("on");
+         $(".answer").eq(1).removeClass("on");
+         $(".answer").eq(2).removeClass("on");
+         $(".answer").eq(3).addClass("on");
 
-			document.trForm.answer.value = array_answer;
-			document.trForm.submit();
-			return;
-		}
+         $("#SLForm").find(":radio[name='answer']").eq(0).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(1).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(2).prop("checked",
+               false);
+         $("#SLForm").find(":radio[name='answer']").eq(3).prop("checked",
+               true);
+      }
 
-		$(".question_text").html(
-				(main_step + 1) + ". " + array_question[main_step]);
+      setTimeout("change_question()", 500);
+   }
 
-		if (main_step > 8) {
-			$(".count_text").html("[ " + ((16 - main_step)) + "ë¬¸í•­ ë‚¨ì•˜ìŠµë‹ˆë‹¤ ]");
-		}
+   function change_question() {
+      main_step = main_step + 1;
 
-		$(".answer").eq(0).removeClass("on");
-		$(".answer").eq(1).removeClass("on");
-		$(".answer").eq(2).removeClass("on");
-		$(".answer").eq(3).removeClass("on");
+      if (main_step == 16) {
+         //alert(array_answer);
 
-		$("#SLForm").find(":radio[name='answer']").eq(0).prop("checked", false);
-		$("#SLForm").find(":radio[name='answer']").eq(1).prop("checked", false);
-		$("#SLForm").find(":radio[name='answer']").eq(2).prop("checked", false);
-		$("#SLForm").find(":radio[name='answer']").eq(3).prop("checked", false);
-	}
+         document.trForm.answer.value = array_answer;
+         document.trForm.submit();
+         return;
+      }
 
-	$(document).ready(function() {
-		var toggled = true;
-		$("img").on('click', function() {
-			$(this).attr("src", "/html/love_test/self_love/img/btn_02.png");
-			setTimeout(function() {
-				$("#step_area").animate({
-					"marginTop" : "-=723px"
-				}, 300);
-			}, 500);
-		});
+      $(".question_text").html(
+            (main_step + 1) + ". " + array_question[main_step]);
 
-		$(".main_bg").fadeIn(800, function() {
-			$("#flip").slideDown(300, function() {
-				$(".second").show();
-			});
-		});
-	});
+      if (main_step > 8) {
+         $(".count_text").html("[ " + ((16 - main_step)) + "¹®Ç× ³²¾Ò½À´Ï´Ù ]");
+      }
+
+      $(".answer").eq(0).removeClass("on");
+      $(".answer").eq(1).removeClass("on");
+      $(".answer").eq(2).removeClass("on");
+      $(".answer").eq(3).removeClass("on");
+
+      $("#SLForm").find(":radio[name='answer']").eq(0).prop("checked", false);
+      $("#SLForm").find(":radio[name='answer']").eq(1).prop("checked", false);
+      $("#SLForm").find(":radio[name='answer']").eq(2).prop("checked", false);
+      $("#SLForm").find(":radio[name='answer']").eq(3).prop("checked", false);
+   }
+
+   $(document).ready(function() {
+      var toggled = true;
+      $("img").on('click', function() {
+         $(this).attr("src", "/html/love_test/self_love/img/btn_02.png");
+         setTimeout(function() {
+            $("#step_area").animate({
+               "marginTop" : "-=723px"
+            }, 300);
+         }, 500);
+      });
+
+      $(".main_bg").fadeIn(800, function() {
+         $("#flip").slideDown(300, function() {
+            $(".second").show();
+         });
+      });
+   });
 </script>
 
+
+<script
+   src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/4445655678/?random=1580794638527&amp;cv=9&amp;fst=1580794638527&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=864&amp;u_w=1536&amp;u_ah=824&amp;u_aw=1536&amp;u_cd=24&amp;u_his=6&amp;u_tz=540&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2wg1m0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.duo.co.kr%2Fhtml%2Flove_test%2Fself_love%2Fself_love_main.asp%3Fu_div%3D&amp;ref=https%3A%2F%2Fwww.duo.co.kr%2Fhtml%2Flove_test%2Fmain.asp&amp;tiba=%EB%93%80%EC%98%A4-%ED%95%9C%EA%B5%AD%EB%8C%80%ED%91%9C%EA%B2%B0%ED%98%BC%EC%A0%95%EB%B3%B4%ED%9A%8C%EC%82%AC&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
 </head>
-	<body id="page-top">
-		<section id="portfolio" class="light-bg">
-			<div class="container">
-			<div class="row">
-				
-				</div>
-			</div>
 
 
+ 
+</head>    
+<body> 
+<div id="selflove" style="height:723px;overflow:hidden;">
+      <form name="trForm" method="post" action="self_love_result.shop">
+         <input type="hidden" name="answer" value="">  
+         <input type="hidden" name="u_div" value="">  
+      </form>
+      <div id="step_area" style="margin-top: -723px;">
+         <div class="first main_bg" style="height: 723px;">
+            <div class="temp">
+               <h1>´ç½ÅÀº ¾ó¸¶³ª ¿¬¾Ö¸¦ À§ÇÑ ÁØºñ°¡ µÇ¾î ÀÖ³ª¿ä? ¿¬¾ÖÀû¼º°Ë»ç</h1>
+               <div>µà¿ÀÈÞ¸Õ¶óÀÌÇÁ¿¬±¸¼Ò¿¡¼­ ¿À·£ ¿¬±¸¿Í Ã¼°èÀûÀÎ ºÐ¼®À» ÅëÇØ °³¹ßÇÑ<br>¿¬¾ÖÀû¼º°Ë»ç·Î ´ç½ÅÀÌ ¾ó¸¶³ª ¿¬¾ÖÀ» À§ÇÑ ÁØºñ°¡ µÇ¾î ÀÖ´ÂÁö<br>¹«·á·Î Áø´ÜÇØ µå¸³´Ï´Ù.</div>
+               <a id="flip" style="cursor: pointer;"><img src="/html/love_test/self_love/img/btn_02.png"></a>
+            </div>
+         </div>
 
-			<div class="row">
-				
-				<div class="second" style="height: 723px;">
-			<form name="SLForm" id="SLForm" method="post" class="temp">
-				<input type="hidden" name="array_answer" value="">
+         <div class="second" style="height: 723px;">
+         <form name="SLForm" id="SLForm" method="post" class="temp">
+            <input type="hidden" name="array_answer" value="">
 
-				<h1>ë‹¹ì‹ ì€ ì–¼ë§ˆë‚˜ ì—°ì• ë¥¼ ìœ„í•œ ì¤€ë¹„ê°€ ë˜ì–´ ìžˆë‚˜ìš”? ì—°ì• ì ì„±ê²€ì‚¬</h1>			
-				<div class="q">
-				<div class="middle question_text">		
-				<!--
-				1. ë‚˜ëŠ” ê±±ì •ì„ ë§Žì´ í•˜ì§€ ì•ŠëŠ”ë‹¤.
-				2. ë‚˜ëŠ” ë‚¨ì„ ë•ëŠ” ê²ƒì„ ì¢‹ì•„í•œë‹¤.
-				3. ë‚˜ëŠ” ëª¨ë“  ì¼ì„ ê³„íšì„ ì„¸ì›Œì„œ í•œë‹¤.
-				4. ë‚˜ëŠ” ê¸°ë°œí•œ ì•„ì´ë””ì–´ë“¤ì„ ë§Žì´ ê°€ì§€ê³  ìžˆë‹¤.
-				5. ë‚˜ëŠ” ì‚¬ëžŒì„ íŽ¸í•˜ê²Œ í•œë‹¤.
-				6. ë‚˜ëŠ” ë¬¼ê±´ì„ ì“°ê³  ë‚œ í›„ ì œìžë¦¬ì— ê°–ë‹¤ ë†“ëŠ”<br />ê²ƒì„ ìžì£¼ ìžŠëŠ”ë‹¤.
-				7. ë‚˜ëŠ” ë§ìˆ˜ê°€ ì ë‹¤.
-				8. ë‚˜ëŠ” ì–´ë µë”ë¼ë„ ë„ì „ì ì¸ ê²ƒë“¤ì„ ì½ëŠ” ê²ƒì„<br />ì¢‹ì•„í•œë‹¤.
-				9. ë‚˜ëŠ” ì›¬ë§Œí•´ì„œëŠ” ì§œì¦ë‚´ì§€ ì•ŠëŠ”ë‹¤.
-				10. ë‚˜ëŠ” ë‹¤ë¥¸ ì‚¬ëžŒì—ê²Œ ì‰½ê²Œ ë‹¤ê°€ê°€ì§€ ëª»í•œë‹¤.
-				11. ë‚˜ëŠ” ë§ˆìŒì´ ë”°ëœ»í•˜ë‹¤.
-				12. ë‚˜ëŠ” ì–´ì°¨í”¼ í•´ì•¼ í•˜ëŠ” ê·€ì°®ì€ ì¼ë“¤ì„<br />ë¯¸ë£¨ì§€ ì•Šê³  ë°”ë¡œ í•´ ì¹˜ìš´ë‹¤.
-				13. ë‚˜ëŠ” ëŒ€í™”ë¥¼ ë¨¼ì € ì‹œìž‘í•˜ëŠ” íŽ¸ì´ë‹¤.
-				14. ë‚˜ëŠ” ì–´ë–¤ ì¼ì„ ëŠ˜ ìƒˆë¡œìš´ ë°©ë²•ìœ¼ë¡œ<br />í•´ë³´ê¸°ë¥¼ ì¢‹ì•„í•œë‹¤.
-				15. ë‚´ ìƒê°ëŒ€ë¡œ ì¼ì´ í’€ë¦¬ì§€ ì•Šìœ¼ë©´ ì‹¤ë§ê°ì„ ê·¸ëŒ€ë¡œ í‘œí˜„í•œë‹¤.
-				16. ë‚˜ëŠ” ìŠ¤íŠ¸ë ˆìŠ¤ë¥¼ ìž˜ ë°›ëŠ”ë‹¤.
-				-->
-				1. ë‚˜ëŠ” ê±±ì •ì„ ë§Žì´ í•˜ì§€ ì•ŠëŠ”ë‹¤.
-				</div>
-				</div>
-				<div class="a">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						<tbody><tr>
-							<td width="11" height="89"></td>
-							<td width="89">
-								<label class="answer">
-									<input type="radio" name="answer" value="1" onclick="change_answer_state(this);">
-								</label>
-							</td>
-							<td width="11"></td>
-							<td width="11"></td>
-							<td width="89">
-								<label class="answer">
-									<input type="radio" name="answer" value="3" onclick="change_answer_state(this);">
-								</label>
-							</td>
-							<td width="11"></td>
-							<td width="11"></td>
-							<td width="89">
-								<label class="answer">
-									<input type="radio" name="answer" value="5" onclick="change_answer_state(this);">
-								</label>
-							</td>
-							<td width="11"></td>
-							<td width="11"></td>
-							<td width="89">
-								<label class="answer">
-									<input type="radio" name="answer" value="7" onclick="change_answer_state(this);">
-								</label>
-							</td>
-							<td width="11"></td>
-							<!--
-							<td width="11"></td>
-							<td width="89">
-								<label class="answer">
-									<input type="radio" name="answer" value="5" onclick="change_answer_state(this);" />
-								</label>
-							</td>
-							<td width="11"></td-->
-						</tr>
-					</tbody></table>
-				</div>
-				<div class="state">
-					<div>ê·¸ë ‡ì§€ì•Šë‹¤</div>
-					<img src="${path}/css/testcss/images/self_01.png">
-					<div>ë³´í†µì´ë‹¤</div> 
-					<img src="${path}/css/testcss/images/self_02.png">
-					<div>ë§¤ìš°ê·¸ë ‡ë‹¤</div>
-				</div>
-				<div class="remain count_text"></div>
-			</form>
-			</div>
-			
-			
-				 
-			</div>
-			</div><!-- end container -->
-		</section>
-		<p id="back-top">
-			<a href="#top"><i class="fa fa-angle-up"></i></a>
-		</p>
-		<footer>
-			<div class="container text-center">  
-				<p>Designed by <a href="http://moozthemes.com"><span>MOOZ</span>Themes.com</a></p>
-			</div>
-		</footer>
-		
-		<script type="text/javascript">
-		$(".numberOnly").on("focusout", function() {
-			var x = $(this).val();
-			if (x && x.length > 0) {
-				if (!$.isNumeric(x)) {
-					x = x.replace(/[^0-9]/g, "");
-				}
-
-				$(this).val(x);
-			}
-		}).on("keyup", function() {
-			$(this).val($(this).val().replace(/[^0-9]/g, ""));
-		}); 
-	</script> 
-
-		
-		<!-- Bootstrap core JavaScript
-			================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-		<script src="${path}/css/testcss/js/bootstrap.min.js"></script>
-		<script src="${path}/css/testcss/js/owl.carousel.min.js"></script>
-		<script src="${path}/css/testcss/js/cbpAnimatedHeader.js"></script>
-		<script src="${path}/css/testcss/js/theme-scripts.js"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="${path}/css/testcss/js/ie10-viewport-bug-workaround.js"></script>
-	</body>
+            <h1>´ç½ÅÀº ¾ó¸¶³ª ¿¬¾Ö¸¦ À§ÇÑ ÁØºñ°¡ µÇ¾î ÀÖ³ª¿ä? ¿¬¾ÖÀû¼º°Ë»ç</h1>         
+            <div class="q">
+            <div class="middle question_text">      
+            <!--
+            1. ³ª´Â °ÆÁ¤À» ¸¹ÀÌ ÇÏÁö ¾Ê´Â´Ù.
+            2. ³ª´Â ³²À» µ½´Â °ÍÀ» ÁÁ¾ÆÇÑ´Ù.
+            3. ³ª´Â ¸ðµç ÀÏÀ» °èÈ¹À» ¼¼¿ö¼­ ÇÑ´Ù.
+            4. ³ª´Â ±â¹ßÇÑ ¾ÆÀÌµð¾îµéÀ» ¸¹ÀÌ °¡Áö°í ÀÖ´Ù.
+            5. ³ª´Â »ç¶÷À» ÆíÇÏ°Ô ÇÑ´Ù.
+            6. ³ª´Â ¹°°ÇÀ» ¾²°í ³­ ÈÄ Á¦ÀÚ¸®¿¡ °®´Ù ³õ´Â<br />°ÍÀ» ÀÚÁÖ ÀØ´Â´Ù.
+            7. ³ª´Â ¸»¼ö°¡ Àû´Ù.
+            8. ³ª´Â ¾î·Æ´õ¶óµµ µµÀüÀûÀÎ °ÍµéÀ» ÀÐ´Â °ÍÀ»<br />ÁÁ¾ÆÇÑ´Ù.
+            9. ³ª´Â À¢¸¸ÇØ¼­´Â Â¥Áõ³»Áö ¾Ê´Â´Ù.
+            10. ³ª´Â ´Ù¸¥ »ç¶÷¿¡°Ô ½±°Ô ´Ù°¡°¡Áö ¸øÇÑ´Ù.
+            11. ³ª´Â ¸¶À½ÀÌ µû¶æÇÏ´Ù.
+            12. ³ª´Â ¾îÂ÷ÇÇ ÇØ¾ß ÇÏ´Â ±ÍÂúÀº ÀÏµéÀ»<br />¹Ì·çÁö ¾Ê°í ¹Ù·Î ÇØ Ä¡¿î´Ù.
+            13. ³ª´Â ´ëÈ­¸¦ ¸ÕÀú ½ÃÀÛÇÏ´Â ÆíÀÌ´Ù.
+            14. ³ª´Â ¾î¶² ÀÏÀ» ´Ã »õ·Î¿î ¹æ¹ýÀ¸·Î<br />ÇØº¸±â¸¦ ÁÁ¾ÆÇÑ´Ù.
+            15. ³» »ý°¢´ë·Î ÀÏÀÌ Ç®¸®Áö ¾ÊÀ¸¸é ½Ç¸Á°¨À» ±×´ë·Î Ç¥ÇöÇÑ´Ù.
+            16. ³ª´Â ½ºÆ®·¹½º¸¦ Àß ¹Þ´Â´Ù.
+            -->
+            1. ³ª´Â °ÆÁ¤À» ¸¹ÀÌ ÇÏÁö ¾Ê´Â´Ù.
+            </div>
+            </div>
+            <div class="a">
+               <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody><tr>
+                     <td width="11" height="89"></td>
+                     <td width="89">
+                        <label class="answer">
+                           <input type="radio" name="answer" value="1" onclick="change_answer_state(this);">
+                        </label>
+                     </td>
+                     <td width="11"></td>
+                     <td width="11"></td>
+                     <td width="89">
+                        <label class="answer"> 
+                           <input type="radio" name="answer" value="3" onclick="change_answer_state(this);">
+                        </label>
+                     </td>
+                     <td width="11"></td>
+                     <td width="11"></td>
+                     <td width="89">
+                        <label class="answer">
+                           <input type="radio" name="answer" value="5" onclick="change_answer_state(this);">
+                        </label>
+                     </td>
+                     <td width="11"></td>
+                     <td width="11"></td>
+                     <td width="89">
+                        <label class="answer">
+                           <input type="radio" name="answer" value="7" onclick="change_answer_state(this);">
+                        </label>
+                     </td>
+                     <td width="11"></td>
+                     <!--
+                     <td width="11"></td>
+                     <td width="89">
+                        <label class="answer">
+                           <input type="radio" name="answer" value="5" onclick="change_answer_state(this);" />
+                        </label>
+                     </td>
+                     <td width="11"></td-->
+                  </tr>
+               </tbody></table>
+            </div>
+            <div class="state">  
+               <div>±×·¸Áö¾Ê´Ù</div>
+               <img src="../testcss2/img/self_01.png">
+               <div>º¸ÅëÀÌ´Ù</div>
+               <img src="../testcss2/img/self_02.png">
+               <div>¸Å¿ì±×·¸´Ù</div>
+            </div>   
+            <div class="remain count_text"></div>
+         </form>
+         </div> 
+      </div>
+   </div>
+</body>
 </html>
